@@ -7,16 +7,16 @@ import "../navButton/navButton";
 //}
 
 class Nav extends HTMLElement{
-    
+
     constructor(){
         super();
         this.attachShadow({mode: "open"});
     }
-    
+
     connectedCallback(){
         this.render();
     }
-    
+
     render(){
         if(this.shadowRoot){
 
@@ -32,7 +32,7 @@ class Nav extends HTMLElement{
             mainLogo.setAttribute("src", "/dist/img/image 45.png")
             mainLogo.setAttribute("class", "mainLogo")
             nav.appendChild(mainLogo);
-    
+
 
             const iconPrueba = this.ownerDocument.createElement("nav-button")
             iconPrueba.setAttribute("icon", "/dist/img/home.png")

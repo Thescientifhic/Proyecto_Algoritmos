@@ -2,6 +2,7 @@ import data from "../service/data";
 import { AttributeFunctioncard } from "../components/functionCard/function";
 import { AttributeCarousel } from "../components/carousel/carousel";
 import "../components/export";
+import "../components/nav/nav";
 
 class MainContainer extends HTMLElement {
   constructor() {
@@ -23,6 +24,9 @@ class MainContainer extends HTMLElement {
   render() {
     if (this.shadowRoot) {
       this.shadowRoot.innerHTML = '';
+
+        const myNav = this.ownerDocument.createElement("my-nav");
+        this.shadowRoot.appendChild(myNav);
 
         data.forEach((user, index) => {
         const link = this.ownerDocument.createElement("link")
