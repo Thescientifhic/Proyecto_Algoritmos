@@ -15,6 +15,10 @@ class AppContainer extends  HTMLElement {
 
     render() {
         if(this.shadowRoot){
+            const link = this.ownerDocument.createElement("link")
+            link.setAttribute("rel", "stylesheet")
+            link.setAttribute("href", "/src/index1.css")
+            this.shadowRoot?.appendChild(link);
         const something = this.ownerDocument.createElement("main-container")
         this.shadowRoot?.appendChild(something)
         }

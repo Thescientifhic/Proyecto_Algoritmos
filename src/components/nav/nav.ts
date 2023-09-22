@@ -26,6 +26,7 @@ class Nav extends HTMLElement{
             this.shadowRoot.appendChild(link);
 
             const nav = this.ownerDocument.createElement("nav")
+            nav.setAttribute("class","navbar")
             this.shadowRoot.appendChild(nav);
 
             const mainLogo = this.ownerDocument.createElement("img")

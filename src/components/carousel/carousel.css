@@ -1,19 +1,48 @@
-section {
-    display: flex;
-    flex-direction: row;
+@media (min-width: 601px) {
+    section {
+        display: flex;
+        flex-direction: row;
+    }
+
+    button {
+        background: none;
+        border: none;
+    }
+
+    img{
+        border-radius: 50px;
+    }
+
+    .principalimg {
+        padding: 20px;
+        width: 450px;
+        height: 650px;
+    }
 }
 
-button {
-    background: none;
-    border: none;
-}
 
-img{
-    border-radius: 50px;
-}
 
-.principalimg {
-    padding: 20px;
-    width: 450px;
-    height: 650px;
+
+
+  @media (max-width: 600px) {
+    section {
+        display: flex;
+        flex-direction: row;
+    }
+
+    button {
+        background: none;
+        border: none;
+    }
+
+    img{
+        border-radius: 50px;
+    }
+
+    .principalimg {
+        padding: 20px;
+        width: 450px;
+        height: 650px;
+    }
+
 }

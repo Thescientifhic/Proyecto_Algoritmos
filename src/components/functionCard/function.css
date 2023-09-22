@@ -2,9 +2,21 @@ section {
     background-color: #111418;
     display: flex;
     flex-direction: column;
-    width: 450px;
+    width: 133%;
     height: 150px;
-    border-radius: 40px;
+    border-radius: 50px;
     align-items: center;
 }
 
+@media (max-width: 600px) {
+    section {
+        background-color: #111418;
+        display: flex;
+        flex-direction: column;
+        width: 200%;
+        height: 205px;
+        border-radius: 70px;
+        align-items: center;
+    }
+
+}
