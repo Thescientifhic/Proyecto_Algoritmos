@@ -27,22 +27,16 @@
     }
 }
 
-  @media (max-width: 600px) {
+@media (max-width: 600px) {
     nav{
         display: flex;
-        width: 115%;
-        height: 60%;
-        max-height: 150px;
+        width: 1470%;
+        height: 12%;
+        max-height: 130px;
         background-color: #181E22;
-        border-radius: 35px;
-        margin-top: 109%;
+        border-radius: 55px;
+        margin-top: 1350%;
         align-items: center;
-    }
-    nav {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column !important;
     }
 
     .mainLogo {
@@ -50,11 +44,9 @@
     }
 
     .user{
-        height: 10%;
         width: 6%;
         margin-right: 5%;
 
-    }
-
 }
 
+}

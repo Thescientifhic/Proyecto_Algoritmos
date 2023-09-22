@@ -16,15 +16,11 @@
     .principalimg {
         padding: 20px;
         width: 450px;
-        height: 650px;
+        height: 90%;
     }
 }
 
-
-
-
-
-  @media (max-width: 600px) {
+@media (max-width: 600px) {
     section {
         display: flex;
         flex-direction: row;
@@ -35,14 +31,11 @@
         border: none;
     }
 
-    img{
-        border-radius: 50px;
-    }
-
     .principalimg {
-        padding: 20px;
-        width: 450px;
-        height: 650px;
+        width: 690px;
+        height: 93%;
     }
 
 }
+
+
