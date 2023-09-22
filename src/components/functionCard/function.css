@@ -1,0 +1,10 @@
+section {
+    background-color: #111418;
+    display: flex;
+    flex-direction: column;
+    width: 450px;
+    height: 150px;
+    border-radius: 40px;
+    align-items: center;
+}
+
