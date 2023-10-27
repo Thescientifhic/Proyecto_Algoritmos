@@ -78,22 +78,16 @@ export default class Landing extends HTMLElement{
         this.shadowRoot?.appendChild(h1_Element);
         this.shadowRoot?.appendChild(account_button);
 
+        const body = document.body;
 
+        // Establece la URL de la imagen de fondo
+        const imageUrl = '/dist/img/Landing.png';
 
-    //     <link rel="stylesheet" href="/src/components/carousel/carousel.css">
+        // Aplica el estilo de fondo al elemento
+        body.style.backgroundImage = `url(${imageUrl})`;
+        body.style.backgroundSize = 'cover';
+        body.style.backgroundRepeat = 'no-repeat';
 
-
-    //     <section>
-    //     <nav>
-    //         <img class="logo" src="/dist/img/image 45.png">
-    //         <button>${this.btnSignIn}</button>
-    //     </nav>
-    //     <div>
-    //         <h1>Discover your gym partner</h1>
-    //         <button>${this.btnAccount}</button>
-    //     </div>
-    //     </section>
-    // `
     }
 }
 

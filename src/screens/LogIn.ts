@@ -18,8 +18,8 @@ class LogInContainer extends HTMLElement {
     if (this.shadowRoot) {
       this.shadowRoot.innerHTML = '';
 
-        const login = this.ownerDocument.createElement("app-login");
-        this.shadowRoot.appendChild(login);
+        const logins = this.ownerDocument.createElement("app-login");
+        this.shadowRoot.appendChild(logins);
 
     }
   }

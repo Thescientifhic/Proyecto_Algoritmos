@@ -1,14 +1,14 @@
-export enum AttributeLogIn {
+export enum AttributeSignUp {
     btnSignIn = "btnSignIn",
     btnAccount = "btnAccount"
 }
 
-export default class LogIn extends HTMLElement {
+export default class SignUp extends HTMLElement {
     btnSignIn?: string;
     btnAccount?: string;
 
     static get observedAttributes() {
-        const attrs: Record<AttributeLogIn, null> = {
+        const attrs: Record<AttributeSignUp, null> = {
             btnSignIn: null,
             btnAccount: null,
         };
@@ -16,7 +16,7 @@ export default class LogIn extends HTMLElement {
     }
 
     attributeChangedCallback(
-        propName: AttributeLogIn,
+        propName: AttributeSignUp,
         _: unknown,
         newValue: string
     ) {
@@ -41,7 +41,7 @@ export default class LogIn extends HTMLElement {
 
         const link = this.ownerDocument.createElement("link")
         link.setAttribute("rel", "stylesheet")
-        link.setAttribute("href", "/src/components/LogIn/logIn.css")
+        link.setAttribute("href", "/src/components/SignUp/signup.css")
         this.shadowRoot?.appendChild(link);
 
         const logo_Img = this.ownerDocument.createElement("img");
@@ -50,7 +50,7 @@ export default class LogIn extends HTMLElement {
 
         // Textoo
         const h1_Element = this.ownerDocument.createElement('h1');
-        h1_Element.innerText = "Sign In";
+        h1_Element.innerText = "Sign Up";
 
         // Agregar el formulario de inicio de sesión
         const section = this.ownerDocument.createElement("section");
@@ -69,6 +69,13 @@ export default class LogIn extends HTMLElement {
         imgOut.classList.add('img-out');
         goOut.appendChild(imgOut);
 
+
+// Nombre
+        const nameInput = this.ownerDocument.createElement("input");
+        nameInput.setAttribute("type", "text");
+        nameInput.setAttribute("placeholder", "Name");
+        nameInput.classList.add('inpuut');
+
         // Campo de correo electrónico
         const emailInput = this.ownerDocument.createElement("input");
         emailInput.setAttribute("type", "email");
@@ -81,8 +88,13 @@ export default class LogIn extends HTMLElement {
         passwordInput.setAttribute("placeholder", "Password");
         passwordInput.classList.add('inpuut');
 
+        // Botón de inicio de sesión
+        const loginButton = this.ownerDocument.createElement("button");
+        loginButton.classList.add('loginbtn');
+        loginButton.innerText = "Create Account";
+
         const linkCreate = this.ownerDocument.createElement("a");
-        linkCreate.innerText = "Don´t have an account? Create"
+        linkCreate.innerText = "Already have an account? Sign in"
         // Botón de recordar
         // const rememberCheckbox = this.ownerDocument.createElement("input");
         // rememberCheckbox.setAttribute("type", "checkbox");
@@ -92,18 +104,17 @@ export default class LogIn extends HTMLElement {
         // const forgotPassword = this.ownerDocument.createElement("")
         // Que pongo en un olvido su clave? es un <a></a> o un <button></button>
 
-        // Botón de inicio de sesión
-        const loginButton = this.ownerDocument.createElement("button");
-        loginButton.classList.add('loginbtn');
-        loginButton.innerText = "Log In";
+
 
 
         // const haveAccount = this.ownerDocument.createElement("")
         // Que pongo en un link crear clave? es un <a></a> o un <button></button>
 
         // Agregar elementos al formulario
+
         loginForm.appendChild(goOut);
         loginForm.appendChild(h1_Element);
+        loginForm.appendChild(nameInput);
         loginForm.appendChild(emailInput);
         loginForm.appendChild(passwordInput);
         // loginForm.appendChild(rememberCheckbox);
@@ -128,4 +139,4 @@ export default class LogIn extends HTMLElement {
     }
 }
 
-customElements.define('app-login', LogIn);
+customElements.define('app-signup', SignUp);
