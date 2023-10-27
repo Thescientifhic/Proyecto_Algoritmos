@@ -1,6 +1,7 @@
 import * as components from "./components/export";
 import "./components/export"
 import "./screens/main"
+import "./screens/Landing"
 import { addObserver, appState } from "./store/index";
 import { screens } from "./types/navigation";
 
@@ -19,17 +20,17 @@ class AppContainer extends  HTMLElement {
     render() {
         if(this.shadowRoot){
             switch (appState.screen) {
-                case screens.MAIN : 
-                const something = this.ownerDocument.createElement("main-container")
+                case screens.MAIN :
+                const something = this.ownerDocument.createElement("landing-container")
                 this.shadowRoot?.appendChild(something)
 
                     break;
 
-                    case screens.PROFILE : 
+                    case screens.PROFILE :
                     this.shadowRoot.innerHTML = `Perfil`
-    
-                        break;    
-            
+
+                        break;
+
                 default:
                     break;
             }
