@@ -9,28 +9,28 @@ class NavButton extends HTMLElement {
         const attrs: Record<NavButtonPropreties,null> = {
             icon: null,
         }
-        return Object.keys(attrs); 
+        return Object.keys(attrs);
     }
-    
+
     attributeChangedCallback(propName:NavButtonPropreties, oldValue: string | undefined, newValue: string | undefined ){
         switch(propName){
-            default: 
+            default:
             this[propName] = newValue;
             break;
         }
-        
+
         //this.render();
     }
-    
+
     constructor(){
         super();
         this.attachShadow({mode: "open"});
     }
-    
+
     connectedCallback(){
         this.render();
     }
-    
+
     render(){
         if(this.shadowRoot){
             const link = this.ownerDocument.createElement("link")

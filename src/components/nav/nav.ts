@@ -1,3 +1,6 @@
+import { navigate } from "../../store/actions";
+import { dispatch } from "../../store/index";
+import { screens } from "../../types/navigation";
 import "../navButton/navButton";
 
 //export enum Attribute {
@@ -7,16 +10,16 @@ import "../navButton/navButton";
 //}
 
 class Nav extends HTMLElement{
-    
+
     constructor(){
         super();
         this.attachShadow({mode: "open"});
     }
-    
+
     connectedCallback(){
         this.render();
     }
-    
+
     render(){
         if(this.shadowRoot){
 
@@ -32,7 +35,7 @@ class Nav extends HTMLElement{
             mainLogo.setAttribute("src", "/dist/img/image 45.png")
             mainLogo.setAttribute("class", "mainLogo")
             nav.appendChild(mainLogo);
-    
+
 
             const iconPrueba = this.ownerDocument.createElement("nav-button")
             iconPrueba.setAttribute("icon", "/dist/img/home.png")
@@ -62,6 +65,10 @@ class Nav extends HTMLElement{
             user.setAttribute("src", "/dist/img/usuario.png")
             user.setAttribute("class", "user")
             nav.appendChild(user);
+            user.addEventListener("click", () => {
+                console.log("click user")
+                dispatch(navigate(screens.PROFILE))
+            })
 
 
 
