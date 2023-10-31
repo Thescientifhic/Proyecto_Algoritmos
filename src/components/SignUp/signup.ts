@@ -70,7 +70,7 @@ export default class SignUp extends HTMLElement {
         goOut.appendChild(imgOut);
 
 
-// Nombre
+        // Nombre
         const nameInput = this.ownerDocument.createElement("input");
         nameInput.setAttribute("type", "text");
         nameInput.setAttribute("placeholder", "Name");
@@ -95,23 +95,8 @@ export default class SignUp extends HTMLElement {
 
         const linkCreate = this.ownerDocument.createElement("a");
         linkCreate.innerText = "Already have an account? Sign in"
-        // Botón de recordar
-        // const rememberCheckbox = this.ownerDocument.createElement("input");
-        // rememberCheckbox.setAttribute("type", "checkbox");
-        // const rememberLabel = this.ownerDocument.createElement("label");
-        // rememberLabel.innerText = "Remember me";
-
-        // const forgotPassword = this.ownerDocument.createElement("")
-        // Que pongo en un olvido su clave? es un <a></a> o un <button></button>
-
-
-
-
-        // const haveAccount = this.ownerDocument.createElement("")
-        // Que pongo en un link crear clave? es un <a></a> o un <button></button>
 
         // Agregar elementos al formulario
-
         loginForm.appendChild(goOut);
         loginForm.appendChild(h1_Element);
         loginForm.appendChild(nameInput);

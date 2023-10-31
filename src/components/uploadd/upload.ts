@@ -57,6 +57,9 @@ export default class Upload extends HTMLElement{
         h1_Element.innerText = "Upload a new post to your feed";
         section.appendChild(h1_Element);
 
+        // Falta el de salir y hacer lo que pidio el profe
+
+
         const line = this.ownerDocument.createElement('hr');
         section.appendChild(line);
 
@@ -65,7 +68,7 @@ export default class Upload extends HTMLElement{
         img.classList.add('img-out');
         section.appendChild(img);
 
-
+        //boton seleccionar imagen
         const upload_button = this.ownerDocument.createElement('button');
         upload_button.innerText = `Choose a photo from your computer`;
         upload_button.classList.add('green-button');

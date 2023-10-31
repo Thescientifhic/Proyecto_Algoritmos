@@ -64,6 +64,8 @@ export default class SignIn extends HTMLElement {
         // Boton salir
         const goOut = this.ownerDocument.createElement("button");
         goOut.classList.add('go-out');
+
+
         const imgOut = this.ownerDocument.createElement("img");
         imgOut.setAttribute("src", "/dist/img/X.png");
         imgOut.classList.add('img-out');
@@ -81,25 +83,15 @@ export default class SignIn extends HTMLElement {
         passwordInput.setAttribute("placeholder", "Password");
         passwordInput.classList.add('inpuut');
 
+        // link sign up
         const linkCreate = this.ownerDocument.createElement("a");
         linkCreate.innerText = "Don´t have an account? Create"
-        // Botón de recordar
-        // const rememberCheckbox = this.ownerDocument.createElement("input");
-        // rememberCheckbox.setAttribute("type", "checkbox");
-        // const rememberLabel = this.ownerDocument.createElement("label");
-        // rememberLabel.innerText = "Remember me";
 
-        // const forgotPassword = this.ownerDocument.createElement("")
-        // Que pongo en un olvido su clave? es un <a></a> o un <button></button>
 
         // Botón de inicio de sesión
         const loginButton = this.ownerDocument.createElement("button");
         loginButton.classList.add('loginbtn');
         loginButton.innerText = "Log In";
-
-
-        // const haveAccount = this.ownerDocument.createElement("")
-        // Que pongo en un link crear clave? es un <a></a> o un <button></button>
 
         // Agregar elementos al formulario
         loginForm.appendChild(goOut);

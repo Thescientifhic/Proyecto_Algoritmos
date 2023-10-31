@@ -63,6 +63,8 @@ export default class Landing extends HTMLElement{
         const logo_Img = this.ownerDocument.createElement("img");
         logo_Img.setAttribute("src", "/dist/img/image 45.png");
 
+
+        //boton log in
         const sign_button = this.ownerDocument.createElement('button');
         sign_button.innerText = ` Log in`;
         sign_button.classList.add('white-button');
@@ -77,6 +79,7 @@ export default class Landing extends HTMLElement{
         const h1_Element = this.ownerDocument.createElement('h1');
         h1_Element.innerText = "Discover your gym partner";
 
+        // boton crear cuenta
         const account_button = this.ownerDocument.createElement('button');
         account_button.innerText = `Create an account`;
         account_button.classList.add('green-button');
