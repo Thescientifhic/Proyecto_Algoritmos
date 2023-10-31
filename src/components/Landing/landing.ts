@@ -66,6 +66,7 @@ export default class Landing extends HTMLElement{
         const sign_button = this.ownerDocument.createElement('button');
         sign_button.innerText = ` Log in`;
         sign_button.classList.add('white-button');
+
         // sign_button.addEventListener("click", () => {
         //     console.log("click user")
         //     dispatch(navigate(screens.MAIN))})

@@ -4,6 +4,7 @@ import "./screens/main"
 import "./screens/Landing"
 import "./screens/SignIn"
 import "./screens/SignUp"
+import "./screens/upload"
 import { addObserver, appState } from "./store/index";
 import { screens } from "./types/navigation";
 
@@ -22,8 +23,8 @@ class AppContainer extends  HTMLElement {
     render() {
         if(this.shadowRoot){
             switch (appState.screen) {
-                case screens.MAIN :
-                const something = this.ownerDocument.createElement("main-container") // main-container / landing-container / signin-container / signup-container
+                case screens.LANDING :
+                const something = this.ownerDocument.createElement("landing-container") // main-container / landing-container / signin-container / signup-container / upload-container
                 this.shadowRoot?.appendChild(something)
 
                     break;

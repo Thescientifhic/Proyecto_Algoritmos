@@ -64,6 +64,7 @@ class Nav extends HTMLElement{
             const user = this.ownerDocument.createElement("img")
             user.setAttribute("src", "/dist/img/usuario.png")
             user.setAttribute("class", "user")
+
             nav.appendChild(user);
             user.addEventListener("click", () => {
                 console.log("click user")
