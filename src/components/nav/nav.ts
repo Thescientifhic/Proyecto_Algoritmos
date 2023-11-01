@@ -1,3 +1,6 @@
+import { navigate } from "../../store/actions";
+import { dispatch } from "../../store/index";
+import { screens } from "../../types/navigation";
 import "../navButton/navButton";
 
 //export enum Attribute {
@@ -26,7 +29,6 @@ class Nav extends HTMLElement{
             this.shadowRoot.appendChild(link);
 
             const nav = this.ownerDocument.createElement("nav")
-            nav.setAttribute("class","navbar")
             this.shadowRoot.appendChild(nav);
 
             const mainLogo = this.ownerDocument.createElement("img")
@@ -62,7 +64,12 @@ class Nav extends HTMLElement{
             const user = this.ownerDocument.createElement("img")
             user.setAttribute("src", "/dist/img/usuario.png")
             user.setAttribute("class", "user")
+
             nav.appendChild(user);
+            user.addEventListener("click", () => {
+                console.log("click user")
+                dispatch(navigate(screens.PROFILE))
+            })
 
 
 

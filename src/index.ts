@@ -1,12 +1,19 @@
 import * as components from "./components/export";
 import "./components/export"
 import "./screens/main"
+import "./screens/Landing"
+import "./screens/SignIn"
+import "./screens/SignUp"
+import "./screens/upload"
+import { addObserver, appState } from "./store/index";
+import { screens } from "./types/navigation";
 
 
 class AppContainer extends  HTMLElement {
     constructor() {
-        super()
-        this.attachShadow({mode: "open"})
+        super();
+        this.attachShadow({mode: "open"});
+        addObserver(this)
     }
 
     connectedCallback() {
@@ -15,13 +22,25 @@ class AppContainer extends  HTMLElement {
 
     render() {
         if(this.shadowRoot){
-            const link = this.ownerDocument.createElement("link")
-            link.setAttribute("rel", "stylesheet")
-            link.setAttribute("href", "/src/index1.css")
-            this.shadowRoot?.appendChild(link);
-        const something = this.ownerDocument.createElement("main-container")
-        this.shadowRoot?.appendChild(something)
+            switch (appState.screen) {
+                case screens.MAIN :
+                const something = this.ownerDocument.createElement("landing-container") // main-container / landing-container / signin-container / signup-container / upload-container
+                this.shadowRoot?.appendChild(something)
+
+                    break;
+
+                    case screens.PROFILE :
+                        const profile1 = this.ownerDocument.createElement("my-profile")
+                        console.log(profile1);
+                        this.shadowRoot?.appendChild(profile1)
+
+                        break;
+
+                default:
+                    break;
+            }
         }
+
     }
 }
 

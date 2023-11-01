@@ -1,4 +1,4 @@
-import { AttributeFunctioncard } from "../functionCard/function";
+
 export enum AttributeCarousel {
     "img" = "img",
     // "img2" ="img2",
@@ -49,6 +49,7 @@ export default class Carousel extends HTMLElement{
         if(this.shadowRoot)
         this.shadowRoot.innerHTML = `
         <link rel="stylesheet" href="/src/components/carousel/carousel.css">
+
 
         <section>
         <button><img src="/dist/img/Left.png">${this.btnleft}</button>
