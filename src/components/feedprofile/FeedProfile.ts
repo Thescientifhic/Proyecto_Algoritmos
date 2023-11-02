@@ -7,11 +7,21 @@ export enum feedAttribute {
     "info_gym" = "info_gym",
     "description" = "description",
     "img" ="img",
+    "img2" ="img2",
+    "img3" ="img3",
+    "img4" ="img4",
+    "img5" ="img5",
+    "img6" ="img6",
 }
 
 
 export class Feed extends HTMLElement {
     img?: string;
+    img2?: string;
+    img3?: string;
+    img4?: string;
+    img5?: string;
+    img6?: string;
     profile?: string;
     name?: string;
     user_name?: string;
@@ -22,6 +32,11 @@ export class Feed extends HTMLElement {
     static get observedAttributes(){
         const attrs: Record <feedAttribute, null> ={
             img: null,
+            img2: null,
+            img3: null,
+            img4: null,
+            img5: null,
+            img6: null,
             profile: null,
             name: null,
             user_name: null,
@@ -108,12 +123,24 @@ export class Feed extends HTMLElement {
             divFeed.appendChild(photo1)
 
             const photo2 = this.ownerDocument.createElement("img")
-            photo2.setAttribute("src", "/dist/algo/perfil2.png")
+            photo2.setAttribute("src", `${this.img2}`)
             divFeed.appendChild(photo2)
 
             const photo3 = this.ownerDocument.createElement("img")
-            photo3.setAttribute("src", "/dist/algo/perfil3.png")
+            photo3.setAttribute("src", `${this.img3}`)
             divFeed.appendChild(photo3)
+
+            const photo4 = this.ownerDocument.createElement("img")
+            photo4.setAttribute("src", `${this.img4}`)
+            divFeed.appendChild(photo4)
+
+            const photo5 = this.ownerDocument.createElement("img")
+            photo5.setAttribute("src", `${this.img5}`)
+            divFeed.appendChild(photo5)
+
+            const photo6 = this.ownerDocument.createElement("img")
+            photo6.setAttribute("src", `${this.img6}`)
+            divFeed.appendChild(photo6)
         }
     }
 }

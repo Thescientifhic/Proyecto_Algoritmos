@@ -1,11 +1,14 @@
-
-
+import firebase from "../../utils/firebase";
 
 export enum AttributeUpload {
      "img" = "img",
     "btn" = "btn",
 
 
+}
+
+const formPost  = {
+    url_img: "",
 }
 
 export default class Upload extends HTMLElement{
@@ -42,6 +45,14 @@ export default class Upload extends HTMLElement{
         this.render();
     }
 
+    changeUrl(e: any){
+        formPost.url_img = e.target.value;
+    }
+
+    submitForm(){
+        firebase.addPost(formPost);
+    }
+
     render(){
         if(this.shadowRoot)
         this.shadowRoot.innerHTML = '';
@@ -76,16 +87,17 @@ export default class Upload extends HTMLElement{
         const img_link = this.ownerDocument.createElement("input");
         img_link.setAttribute("type", "text");
         img_link.setAttribute("placeholder", "Url image");
+        img_link.addEventListener("change", this.changeUrl);
         img_link.classList.add('inpuut');
         loginForm.appendChild(img_link);
 
 
         //boton seleccionar imagen
         const upload_button = this.ownerDocument.createElement('button');
-        upload_button.innerText = `Choose a photo from your computer`;
+        upload_button.innerText = `upload your picture`;
+        upload_button.addEventListener("click", this.submitForm);
         upload_button.classList.add('green-button');
         section.appendChild(upload_button);
-
         this.shadowRoot?.appendChild(section);
 
     }

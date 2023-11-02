@@ -49,8 +49,19 @@ export async function getDataProfile(): Promise<DataProfile[]> {
     return dataProfile;
 }
 
+const addPost = async (post: any) => {
+  try {
+    const where = collection(db, "Upload_pic");
+    await addDoc(where,post);
+    console.log("se añadio")
+    } catch (error) {
+    console.error(error);
+
+    }
+}
 
 export default {
-    getDataPost,
-    getDataProfile,
-  }
+  getDataPost,
+  getDataProfile,
+  addPost,
+}
