@@ -1,15 +1,34 @@
 
 export enum feedAttribute {
-    "img" = "img"
+    "profile" = "profile",
+    "name" = "name",
+    "user_name" = "user_name",
+    "info_times" = "info_times",
+    "info_gym" = "info_gym",
+    "description" = "description",
+    "img" ="img",
 }
 
 
 export class Feed extends HTMLElement {
     img?: string;
+    profile?: string;
+    name?: string;
+    user_name?: string;
+    info_times?: string;
+    info_gym?: string;
+    description?: string;
 
     static get observedAttributes(){
         const attrs: Record <feedAttribute, null> ={
             img: null,
+            profile: null,
+            name: null,
+            user_name: null,
+            info_gym: null,
+            info_times: null,
+            description:null,
+
         }
         return Object.keys(attrs);
     }
@@ -63,24 +82,29 @@ export class Feed extends HTMLElement {
             sectionContainer.appendChild(divFeed)
 
             const user = this.ownerDocument.createElement("img")
-            user.setAttribute("src", "/dist/algo/Perfil.png")
+            user.setAttribute("src", `${this.profile}`)
             user.setAttribute("class", "img-profile")
             divUser.appendChild(user)
 
             const nameUser = this.ownerDocument.createElement("h1")
-            nameUser.innerText = "Phobicc.tatan"
+            nameUser.innerText = `${this.user_name}`
             divtext.appendChild(nameUser)
 
             const Name = this.ownerDocument.createElement("p")
-            Name.innerText = "Juan Sebastian Rodriguez"
+            Name.innerText = `${this.name}`
             divtext.appendChild(Name)
 
             const btnUser = this.ownerDocument.createElement("button")
             btnUser.innerHTML = "Edit Profile"
             divtext.appendChild(btnUser)
 
+            const info = this.ownerDocument.createElement("p")
+            info.innerText = `${this.info_gym} / ${this.info_times} / ${this.description}`
+            divtext.appendChild(info)
+
+
             const photo1 = this.ownerDocument.createElement("img")
-            photo1.setAttribute("src", "/dist/algo/perfil1.png")
+            photo1.setAttribute("src", `${this.img}`)
             divFeed.appendChild(photo1)
 
             const photo2 = this.ownerDocument.createElement("img")

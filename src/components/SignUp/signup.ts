@@ -58,7 +58,6 @@ export default class SignUp extends HTMLElement {
 
         const loginForm = this.ownerDocument.createElement("form");
         loginForm.classList.add('form');
-
         section.appendChild(loginForm);
 
         // Boton salir

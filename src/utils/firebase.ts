@@ -2,6 +2,7 @@
 import { collection, addDoc,getDocs,where, setDoc, getFirestore, query } from "firebase/firestore";
 import { initializeApp } from "firebase/app";
 import {DataPost} from "../types/post";
+import { DataProfile } from "../types/profile";
 
 
 
@@ -35,8 +36,21 @@ export async function getDataPost(): Promise<DataPost[]> {
     return dataPost;
   }
 
-  export default {
+
+const profileCollection = collection(db, "profile");
+
+export async function getDataProfile(): Promise<DataProfile[]> {
+    const querySnapshot = await getDocs(profileCollection);
+    const dataProfile: DataProfile[] = [];
+    querySnapshot.forEach((doc) => {
+        const profile = doc.data() as DataProfile;
+        dataProfile.push(profile);
+    });
+    return dataProfile;
+}
+
+
+export default {
     getDataPost,
+    getDataProfile,
   }
-
-

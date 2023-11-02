@@ -68,6 +68,18 @@ export default class Upload extends HTMLElement{
         img.classList.add('img-out');
         section.appendChild(img);
 
+        const loginForm = this.ownerDocument.createElement("form");
+        loginForm.classList.add('form');
+        section.appendChild(loginForm);
+
+        // Link imagen
+        const img_link = this.ownerDocument.createElement("input");
+        img_link.setAttribute("type", "text");
+        img_link.setAttribute("placeholder", "Url image");
+        img_link.classList.add('inpuut');
+        loginForm.appendChild(img_link);
+
+
         //boton seleccionar imagen
         const upload_button = this.ownerDocument.createElement('button');
         upload_button.innerText = `Choose a photo from your computer`;

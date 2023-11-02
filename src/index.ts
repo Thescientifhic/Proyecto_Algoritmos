@@ -24,7 +24,7 @@ class AppContainer extends  HTMLElement {
         if(this.shadowRoot){
             switch (appState.screen) {
                 case screens.MAIN :
-                const something = this.ownerDocument.createElement("main-container") // main-container / landing-container / signin-container / signup-container / upload-container
+                const something = this.ownerDocument.createElement("my-profile") // main-container / landing-container / signin-container / signup-container / upload-container
                 this.shadowRoot?.appendChild(something)
 
                     break;
