@@ -3,6 +3,7 @@ import "../components/nav/nav"
 import { feedAttribute } from "../components/feedprofile/FeedProfile";
 import firebase, { getDataProfile } from "../utils/firebase"
 import {getDataPost,} from "../utils/firebase";
+import { getDataImgProfile } from "../utils/firebase";
 
 export class Profile extends HTMLElement {
 
@@ -23,6 +24,9 @@ async render() {
         const dataProfile = await getDataProfile();
         console.log(dataProfile);
 
+        const dataImgProfile = await getDataImgProfile();
+        console.log(dataImgProfile);
+
         if (this.shadowRoot) {
             console.log("My Profile")
           this.shadowRoot.innerHTML = '';
@@ -36,6 +40,10 @@ async render() {
             divcontainer.setAttribute("class", "container")
             this.shadowRoot?.appendChild(divcontainer)
 
+            const divcontainer2 = this.ownerDocument.createElement("div")
+            divcontainer2.setAttribute("class", "container2")
+            this.shadowRoot?.appendChild(divcontainer2)
+
             const myNav = this.ownerDocument.createElement("my-nav");
             divcontainer.appendChild(myNav)
 
@@ -48,15 +56,15 @@ async render() {
                 Myfeed.setAttribute(feedAttribute.info_gym, profile.info_gym);
                 Myfeed.setAttribute(feedAttribute.info_times, profile.info_times);
                 Myfeed.setAttribute(feedAttribute.description, profile.description);
-                Myfeed.setAttribute(feedAttribute.img, profile.img);
-                Myfeed.setAttribute(feedAttribute.img2, profile.img2);
-                Myfeed.setAttribute(feedAttribute.img3, profile.img3);
-                Myfeed.setAttribute(feedAttribute.img4, profile.img4);
-                Myfeed.setAttribute(feedAttribute.img5, profile.img5);
-                Myfeed.setAttribute(feedAttribute.img6, profile.img6);
-
                 divcontainer.appendChild(Myfeed)
             })
+
+            dataImgProfile.forEach((img) => {
+                const postImage = this.ownerDocument.createElement("img");
+                postImage.classList.add("upload-image")
+                postImage.src = img.img;
+                divcontainer2.appendChild(postImage);
+                })
 
         }
     }

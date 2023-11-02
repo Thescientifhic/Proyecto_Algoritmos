@@ -8,7 +8,7 @@ export enum AttributeUpload {
 }
 
 const formPost  = {
-    url_img: "",
+    img: "",
 }
 
 export default class Upload extends HTMLElement{
@@ -46,7 +46,7 @@ export default class Upload extends HTMLElement{
     }
 
     changeUrl(e: any){
-        formPost.url_img = e.target.value;
+        formPost.img = e.target.value;
     }
 
     submitForm(){

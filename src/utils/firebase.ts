@@ -3,6 +3,7 @@ import { collection, addDoc,getDocs,where, setDoc, getFirestore, query } from "f
 import { initializeApp } from "firebase/app";
 import {DataPost} from "../types/post";
 import { DataProfile } from "../types/profile";
+import { DataImgProfile } from "../types/profileImg";
 
 
 
@@ -49,9 +50,21 @@ export async function getDataProfile(): Promise<DataProfile[]> {
     return dataProfile;
 }
 
+const profileImgCollection = collection(db, "profileImg");
+
+export async function getDataImgProfile(): Promise<DataImgProfile[]> {
+    const querySnapshot = await getDocs(profileImgCollection);
+    const dataImgProfile: DataImgProfile[] = [];
+    querySnapshot.forEach((doc) => {
+        const profile = doc.data() as DataImgProfile;
+        dataImgProfile.push(profile);
+    });
+    return dataImgProfile;
+}
+
 const addPost = async (post: any) => {
   try {
-    const where = collection(db, "Upload_pic");
+    const where = collection(db, "profileImg");
     await addDoc(where,post);
     console.log("se añadio")
     } catch (error) {
@@ -64,4 +77,5 @@ export default {
   getDataPost,
   getDataProfile,
   addPost,
+  getDataImgProfile,
 }
