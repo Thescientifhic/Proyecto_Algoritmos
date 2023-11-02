@@ -5,7 +5,7 @@ import { screens } from "../types/navigation";
 
 const emptyState = {
     //pantalla inicial
-  screen: screens.MAIN,
+  screen: screens.EDIT_PROFILE,
 };
 
 export let appState = Storage.get<AppState>({

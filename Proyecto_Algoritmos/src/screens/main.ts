@@ -3,11 +3,13 @@ import { AttributeFunctioncard } from "../components/functionCard/function";
 import { AttributeCarousel } from "../components/carousel/carousel";
 import "../components/export";
 import "../components/nav/nav";
+import { addObserver } from "../store/index";
 
 class MainContainer extends HTMLElement {
   constructor() {
     super();
     this.attachShadow({ mode: "open" });
+    addObserver(this)
   }
 
   connectedCallback() {

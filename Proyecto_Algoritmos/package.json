@@ -1,6 +1,7 @@
 {
   "name": "prueba",
   "version": "1.0.0",
+  "description": "",
   "main": "index.js",
   "scripts": {
     "start": "serve",
@@ -19,6 +20,5 @@
   },
   "dependencies": {
     "flickity": "^3.0.0"
-  },
-  "description": ""
+  }
 }
