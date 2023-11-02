@@ -39,3 +39,4 @@ export async function getDataPost(): Promise<DataPost[]> {
     getDataPost,
   }
 
+

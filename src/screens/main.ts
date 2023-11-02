@@ -22,8 +22,12 @@ class MainContainer extends HTMLElement {
       const dataPost = await getDataPost(); // Obtiene la lista actualizada de datos desde Firebase
 
       if (index >= 0 && index < dataPost.length) {
-        dataPost.splice(index, 1); // Elimina el elemento en el índice especificado
-
+        // Verifica si la propiedad 'deleted' no existe en el objeto y crea la propiedad como 'false'
+        if (!dataPost[index].hasOwnProperty('deleted')) {
+          dataPost[index].deleted = false;
+        }
+        // Marca el elemento como eliminado
+        dataPost[index].deleted = true;
         // Vuelve a renderizar la vista para reflejar los cambios
         this.render();
       }
@@ -33,69 +37,59 @@ class MainContainer extends HTMLElement {
     }
   }
 
+
   async render() {
-
     try {
-
       const dataPost = await getDataPost();
       console.log(dataPost);
 
       if (this.shadowRoot) {
         this.shadowRoot.innerHTML = '';
 
-          const myNav = this.ownerDocument.createElement("my-nav");
-          this.shadowRoot.appendChild(myNav);
+        const myNav = this.ownerDocument.createElement("my-nav");
+        this.shadowRoot.appendChild(myNav);
 
-          dataPost.forEach((user, index) => {
-          const link = this.ownerDocument.createElement("link")
-          link.setAttribute("rel", "stylesheet")
-          link.setAttribute("href", "/src/screens/main.css")
-          this.shadowRoot?.appendChild(link);
+        dataPost.forEach((user, index) => {
+          if (!user.deleted) {
+            const link = this.ownerDocument.createElement("link")
+            link.setAttribute("rel", "stylesheet")
+            link.setAttribute("href", "/src/screens/main.css")
+            this.shadowRoot?.appendChild(link);
 
-          if (index === 0) { // Verifica si el índice es igual a 0
-            const Carousel = this.ownerDocument.createElement("app-carousel");
-            Carousel.setAttribute(AttributeCarousel.btnleft, " ");
-            Carousel.setAttribute(AttributeCarousel.img, user.img);
-            //  Carousel.setAttribute(AttributeCarousel.img2, user.img2);
-            Carousel.setAttribute(AttributeCarousel.btnright, " ");
+            if (index === 0) { // Verifica si el índice es igual a 0
+              const Carousel = this.ownerDocument.createElement("app-carousel");
+              Carousel.setAttribute(AttributeCarousel.btnleft, " ");
+              Carousel.setAttribute(AttributeCarousel.img, user.img);
+              Carousel.setAttribute(AttributeCarousel.btnright, " ");
 
-            if (this.shadowRoot) {
-              this.shadowRoot.appendChild(Carousel);
-            }
+              if (this.shadowRoot) {
+                this.shadowRoot.appendChild(Carousel);
+              }
 
-            const functionCard = this.ownerDocument.createElement("app-functioncard");
-            // Establece los atributos para el componente Functioncard
-            functionCard.setAttribute(AttributeFunctioncard.name, user.name);
-            functionCard.setAttribute(AttributeFunctioncard.btn_info, " ");
-            functionCard.setAttribute(AttributeFunctioncard.delete_button, " ");
-            functionCard.setAttribute(AttributeFunctioncard.favorite_button, " ");
-            functionCard.setAttribute(AttributeFunctioncard.like_button, " ");
+              const functionCard = this.ownerDocument.createElement("app-functioncard");
+              // Establece los atributos para el componente Functioncard
+              functionCard.setAttribute(AttributeFunctioncard.name, user.name);
+              functionCard.setAttribute(AttributeFunctioncard.btn_info, " ");
+              functionCard.setAttribute(AttributeFunctioncard.delete_button, " ");
+              functionCard.setAttribute(AttributeFunctioncard.favorite_button, " ");
+              functionCard.setAttribute(AttributeFunctioncard.like_button, " ");
 
-            // Agrega un evento de clic al botón de eliminación
-            // functionCard.addEventListener("click", () => {
-            //   this.deleteItem(index);
-            // });
+              // Agrega un evento de clic al botón de eliminación
+              functionCard.addEventListener("click", async () => {
+                await this.deleteItem(index); // Espera a que se complete la eliminación
+                console.log("Elemento eliminado"); // Imprime un mensaje después de eliminar
+              });
 
-            functionCard.addEventListener("click", () => {
-              this.deleteItem(index);
-              console.log(this.deleteItem);
-
-            });
-
-            if (this.shadowRoot) {
-              this.shadowRoot.appendChild(functionCard);
+              if (this.shadowRoot) {
+                this.shadowRoot.appendChild(functionCard);
+              }
             }
           }
         });
       }
-    }
-
-
-   catch (error) {
+    } catch (error) {
       console.error("Error al cargar datos de Firebase:", error);
-
-  }
-
+    }
   }
 }
 

@@ -5,7 +5,7 @@ import { screens } from "../types/navigation";
 
 const emptyState = {
     //pantalla inicial
-  screen: screens.LANDING,
+  screen: screens.MAIN,
 };
 
 export let appState = Storage.get<AppState>({
