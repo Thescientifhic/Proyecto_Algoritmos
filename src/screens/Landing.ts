@@ -1,4 +1,5 @@
 import "../components/export";
+import { addObserver } from "../store/index";
 
 
 
@@ -6,6 +7,7 @@ class LandingContainer extends HTMLElement {
   constructor() {
     super();
     this.attachShadow({ mode: "open" });
+    addObserver(this)
   }
 
   connectedCallback() {

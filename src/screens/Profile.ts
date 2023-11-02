@@ -1,11 +1,13 @@
 import "../components/export"
 import "../components/nav/nav"
+import { addObserver } from "../store/index";
 
 export class Profile extends HTMLElement {
 
     constructor(){
         super();
-        this.attachShadow({mode: 'open'})
+        this.attachShadow({mode: 'open'});
+        addObserver(this)
     }
 
     connectedCallback() {

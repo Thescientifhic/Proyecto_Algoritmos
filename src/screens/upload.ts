@@ -1,4 +1,5 @@
 import "../components/export";
+import { addObserver } from "../store/index";
 
 
 
@@ -6,6 +7,7 @@ class UploadContainer extends HTMLElement {
   constructor() {
     super();
     this.attachShadow({ mode: "open" });
+    addObserver(this)
   }
 
   connectedCallback() {
@@ -17,9 +19,6 @@ class UploadContainer extends HTMLElement {
   render() {
     if (this.shadowRoot) {
       this.shadowRoot.innerHTML = '';
-
-      const myNav = this.ownerDocument.createElement("my-nav");
-        this.shadowRoot.appendChild(myNav);
 
       const upload = this.ownerDocument.createElement("app-upload");
         this.shadowRoot.appendChild(upload);
