@@ -1,3 +1,7 @@
+import { navigate } from "../../store/actions";
+import { addObserver, dispatch } from "../../store/index";
+import { screens } from "../../types/navigation";
+
 export enum AttributeSignIn {
     btnSignIn = "btnSignIn",
     btnAccount = "btnAccount"
@@ -64,7 +68,10 @@ export default class SignIn extends HTMLElement {
         // Boton salir
         const goOut = this.ownerDocument.createElement("button");
         goOut.classList.add('go-out');
-
+        goOut.addEventListener("click", () => {
+            console.log("click out")
+            dispatch(navigate(screens.LANDING))
+        })
 
         const imgOut = this.ownerDocument.createElement("img");
         imgOut.setAttribute("src", "/dist/img/X.png");
@@ -92,6 +99,10 @@ export default class SignIn extends HTMLElement {
         const loginButton = this.ownerDocument.createElement("button");
         loginButton.classList.add('loginbtn');
         loginButton.innerText = "Log In";
+        loginButton.addEventListener("click", () => {
+            console.log("click Login")
+            dispatch(navigate(screens.MAIN))
+        })
 
         // Agregar elementos al formulario
         loginForm.appendChild(goOut);

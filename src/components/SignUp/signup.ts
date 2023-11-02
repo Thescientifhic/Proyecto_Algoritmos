@@ -1,3 +1,7 @@
+import { navigate } from "../../store/actions";
+import { addObserver, dispatch } from "../../store/index";
+import { screens } from "../../types/navigation";
+
 export enum AttributeSignUp {
     btnSignIn = "btnSignIn",
     btnAccount = "btnAccount"
@@ -58,6 +62,7 @@ export default class SignUp extends HTMLElement {
 
         const loginForm = this.ownerDocument.createElement("form");
         loginForm.classList.add('form');
+
         section.appendChild(loginForm);
 
         // Boton salir
@@ -67,6 +72,11 @@ export default class SignUp extends HTMLElement {
         imgOut.setAttribute("src", "/dist/img/X.png");
         imgOut.classList.add('img-out');
         goOut.appendChild(imgOut);
+        goOut.addEventListener("click", () => {
+            console.log("click edit")
+            dispatch(navigate(screens.LANDING))
+        })
+
 
 
         // Nombre
@@ -91,6 +101,10 @@ export default class SignUp extends HTMLElement {
         const loginButton = this.ownerDocument.createElement("button");
         loginButton.classList.add('loginbtn');
         loginButton.innerText = "Create Account";
+        loginButton.addEventListener("click", () => {
+            console.log("click edit")
+            dispatch(navigate(screens.EDIT_PROFILE))
+        })
 
         const linkCreate = this.ownerDocument.createElement("a");
         linkCreate.innerText = "Already have an account? Sign in"

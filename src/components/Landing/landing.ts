@@ -68,6 +68,10 @@ export default class Landing extends HTMLElement{
         const sign_button = this.ownerDocument.createElement('button');
         sign_button.innerText = ` Log in`;
         sign_button.classList.add('white-button');
+        sign_button.addEventListener("click", () => {
+            console.log("click Log")
+            dispatch(navigate(screens.SIGN_IN))
+        })
 
         // sign_button.addEventListener("click", () => {
         //     console.log("click user")
@@ -83,6 +87,10 @@ export default class Landing extends HTMLElement{
         const account_button = this.ownerDocument.createElement('button');
         account_button.innerText = `Create an account`;
         account_button.classList.add('green-button');
+        account_button.addEventListener("click", () => {
+            console.log("click create")
+            dispatch(navigate(screens.SING_UP))
+        })
 
 
         this.shadowRoot?.appendChild(nav);
