@@ -1,0 +1,66 @@
+body {
+    background-image: url('/dist/img/Landing.png');
+    background-size: cover; /* Para ajustar el tamaño de la imagen */
+    background-repeat: no-repeat; /* Para evitar que se repita la imagen */
+    background-position: center center; /* Para centrar la imagen en el elemento */
+  }
+
+
+/* Estilos para el contenedor principal */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+  }
+
+  /* Estilos para el logo */
+  img {
+    margin-right: 10px; /* Margen a la derecha para separar el botón */
+    height: 40px;
+  }
+
+  /* Estilos para el botón de inicio de sesión */
+  .white-button {
+   border-radius: 20px;
+   background-color: white;
+   height: 40px;
+   width: 120px;
+   border: none;
+   font-size: medium;
+   font-weight: bold
+  }
+
+  .green-button {
+    border-radius: 20px;
+    background-color: #55FF00;
+    color: white;
+    height: 40px;
+    width: 200px;
+    border: none;
+    font-size: medium;
+    font-weight: bold;
+    display: block; /* Para que ocupe el ancho completo */
+    margin: 0 auto; /* Margen automático a izquierda y derecha para centrarlo horizontalmente */
+    text-align: center;
+   }
+
+  /* Estilos para el título h1 y el botón de creación de cuenta */
+  h1 {
+    text-align: center; /* Centra el texto */
+    display: block; /* Para que ocupen el ancho completo de su contenedor */
+    color: white;
+    font-size: 70px;
+    font-weight: bold;
+    font-family: 'Roboto', sans-serif;
+    padding-top: 150px;
+
+
+  }
+
+  /* Estilos para centrar el botón de creación de cuenta junto al texto */
+  button.create-account {
+    margin: 0 auto;
+    border-radius: 20px;
+}
+

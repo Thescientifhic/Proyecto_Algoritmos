@@ -1,0 +1,40 @@
+section{
+    display: flex;
+    flex-direction: row-reverse;
+
+}
+
+button {
+    background-color: transparent;
+    border-radius: 30px;
+    border: 1.049px solid #5F0;
+    height: 49px;
+    width: 220px;
+    margin-top: 50px;
+    font-weight: bolder;
+    font-family: 'DM Sans', sans-serif;
+    font-size: larger;
+    color: white;
+    justify-content: center;
+
+}
+
+input {
+    background-color: transparent;
+    border-radius: 30px;
+    border: 1px solid white; 
+    height: 45px;
+    margin: 5px;
+    padding-left: 20px;
+}
+
+.general{
+    display: flex;
+    flex-direction: column;
+    min-width: 450px;
+}
+
+img{
+    width: 150px;
+    height: 150px;
+}
