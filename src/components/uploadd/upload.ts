@@ -68,6 +68,7 @@ export default class Upload extends HTMLElement{
         h1_Element.innerText = "Upload a new post to your feed";
         section.appendChild(h1_Element);
 
+
         // Falta el de salir y hacer lo que pidio el profe
 
 

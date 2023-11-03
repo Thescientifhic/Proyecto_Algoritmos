@@ -7,6 +7,7 @@ import "./screens/SignIn"
 import "./screens/SignUp"
 import "./screens/EditProfile"
 import "./screens/upload"
+import "./screens/Message"
 import { addObserver, appState } from "./store/index";
 import { screens } from "./types/navigation";
 
@@ -38,7 +39,9 @@ class AppContainer extends HTMLElement {
                 break;
 
                 case screens.MESSAGE:
-                    this.shadowRoot.innerHTML = 'Message';
+                    this.shadowRoot.innerHTML = '';
+                    const message = this.ownerDocument.createElement("app-message")
+                    this.shadowRoot?.appendChild(message)
                 break;
 
                 case screens.NEW_POST:
