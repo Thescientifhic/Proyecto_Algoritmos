@@ -1,6 +1,25 @@
 section{
     display: flex;
     flex-direction: row-reverse;
+    justify-content: center;
+    background-color: #151a20;
+    width: 750px;
+    padding: 50px;
+    margin-top: 70px;
+    margin-left: 300px;
+    border-radius: 60px;
+}
+
+.text{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.inputsG{
+    flex-direction: column;
+    padding-left: 40px;
 
 }
 
@@ -8,8 +27,8 @@ button {
     background-color: transparent;
     border-radius: 30px;
     border: 1.049px solid #5F0;
-    height: 49px;
-    width: 220px;
+    height: 40px;
+    width: 200px;
     margin-top: 50px;
     font-weight: bolder;
     font-family: 'DM Sans', sans-serif;
@@ -19,12 +38,14 @@ button {
 
 }
 
+
 input {
     background-color: transparent;
     border-radius: 30px;
-    border: 1px solid white; 
+    border: 1px solid white;
     height: 45px;
-    margin: 5px;
+    margin-bottom: 30px;
+    margin-right: 10px;
     padding-left: 20px;
 }
 

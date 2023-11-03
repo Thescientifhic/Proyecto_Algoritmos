@@ -1,10 +1,7 @@
 import firebase from "../../utils/firebase";
-<<<<<<< HEAD
 import { navigate } from "../../store/actions";
 import { addObserver, dispatch } from "../../store/index";
 import { screens } from "../../types/navigation";
-=======
->>>>>>> origin/sebastian
 
 export enum AttributeUpload {
      "img" = "img",
@@ -70,7 +67,6 @@ export default class Upload extends HTMLElement{
 
         const section = this.ownerDocument.createElement('section');
 
-<<<<<<< HEAD
         // Boton salir
         const goOut = this.ownerDocument.createElement("button");
         goOut.classList.add('go-out');
@@ -84,16 +80,10 @@ export default class Upload extends HTMLElement{
             dispatch(navigate(screens.MAIN))
         })
 
-=======
->>>>>>> origin/sebastian
         const h1_Element = this.ownerDocument.createElement('h1');
         h1_Element.innerText = "Upload a new post to your feed";
         section.appendChild(h1_Element);
 
-<<<<<<< HEAD
-=======
-
->>>>>>> origin/sebastian
         // Falta el de salir y hacer lo que pidio el profe
 
 
@@ -102,11 +92,7 @@ export default class Upload extends HTMLElement{
 
         const img = this.ownerDocument.createElement('img');
         img.setAttribute("src", "/dist/img/upload.png");
-<<<<<<< HEAD
         img.classList.add('img-agg');
-=======
-        img.classList.add('img-out');
->>>>>>> origin/sebastian
         section.appendChild(img);
 
         const loginForm = this.ownerDocument.createElement("form");
@@ -129,7 +115,6 @@ export default class Upload extends HTMLElement{
         upload_button.classList.add('green-button');
         section.appendChild(upload_button);
         this.shadowRoot?.appendChild(section);
-
     }
 }
 

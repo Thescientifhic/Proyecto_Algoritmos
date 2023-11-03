@@ -13,21 +13,12 @@ export class Editcontainer extends HTMLElement {
     connectedCallback() {
         this.render();
     }
-<<<<<<< HEAD
     
     
     render() {
         if (this.shadowRoot) {
            
           this.shadowRoot.innerHTML = ``;
-=======
-
-
-    render() {
-        if (this.shadowRoot) {
-            console.log("My Edit")
-          this.shadowRoot.innerHTML = '';
->>>>>>> origin/sebastian
 
             // const link = this.ownerDocument.createElement("link")
             // link.setAttribute("rel", "stylesheet")
@@ -37,7 +28,6 @@ export class Editcontainer extends HTMLElement {
             const divcontainer = this.ownerDocument.createElement("div")
             divcontainer.setAttribute("class", "container")
             this.shadowRoot?.appendChild(divcontainer)
-<<<<<<< HEAD
     
             const myNav = this.ownerDocument.createElement("my-nav");
             this.shadowRoot?.appendChild(myNav);
@@ -48,16 +38,4 @@ export class Editcontainer extends HTMLElement {
     } 
 }
     
-=======
-
-            const myNav = this.ownerDocument.createElement("my-nav");
-            this.shadowRoot.appendChild(myNav);
-
-            const MyEdit = this.ownerDocument.createElement("my-edit");
-            divcontainer.appendChild(MyEdit)
-        }
-    }
-}
-
->>>>>>> origin/sebastian
 customElements.define("my-editcontainer", Editcontainer)

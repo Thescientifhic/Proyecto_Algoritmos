@@ -10,6 +10,14 @@
 .containerAll{
     right: 0;
     position: absolute;
+    top: 20px;
+    padding-right: 400px;
+}
+
+.container2{
+padding-top: 50px;
+width: 789px;
+
 }
 
 .my-profile{

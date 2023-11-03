@@ -14,7 +14,6 @@ section{
     height: 40px;
   }
 
-<<<<<<< HEAD
 form {
 
     background-color: #111418;
@@ -23,16 +22,6 @@ form {
     height: 500px;
 
 }
-=======
-  form {
-
-background-color: #111418;
-border-radius: 40px;
-width: 400px;
-height: 500px;
-
-  }
->>>>>>> origin/sebastian
 
 .form {
     display: flex;

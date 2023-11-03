@@ -1,16 +1,9 @@
 import "../components/export"
 import "../components/nav/nav"
-<<<<<<< HEAD
 import firebase, { getDataProfile } from "../utils/firebase"
 import {getDataPost,} from "../utils/firebase";
 import { getDataImgProfile } from "../utils/firebase";
 import { feedAttribute } from "../components/FeedProfile/FeedProfile";
-=======
-import { feedAttribute } from "../components/feedprofile/FeedProfile";
-import firebase, { getDataProfile } from "../utils/firebase"
-import {getDataPost,} from "../utils/firebase";
-import { getDataImgProfile } from "../utils/firebase";
->>>>>>> origin/sebastian
 
 export class Profile extends HTMLElement {
 
@@ -43,7 +36,6 @@ async render() {
             link.setAttribute("href", "/src/screens/Profile.css")
             this.shadowRoot.appendChild(link);
 
-<<<<<<< HEAD
             const divContainerAll = this.ownerDocument.createElement("div")
             divContainerAll.setAttribute("class", "containerAll")
             this.shadowRoot?.appendChild(divContainerAll)
@@ -58,19 +50,6 @@ async render() {
 
             const myNav = this.ownerDocument.createElement("my-nav");
             this.shadowRoot?.appendChild(myNav)
-=======
-            const divcontainer = this.ownerDocument.createElement("div")
-            divcontainer.setAttribute("class", "container")
-            this.shadowRoot?.appendChild(divcontainer)
-
-            const divcontainer2 = this.ownerDocument.createElement("div")
-            divcontainer2.setAttribute("class", "container2")
-            this.shadowRoot?.appendChild(divcontainer2)
-
-            const myNav = this.ownerDocument.createElement("my-nav");
-            divcontainer.appendChild(myNav)
-
->>>>>>> origin/sebastian
 
             dataProfile.forEach((profile) => {
                 const Myfeed = this.ownerDocument.createElement("my-feed");

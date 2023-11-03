@@ -1,6 +1,3 @@
-import { navigate } from "../../store/actions";
-import { dispatch } from "../../store/index";
-import { screens } from "../../types/navigation";
 
 export enum feedAttribute {
     "profile" = "profile",
@@ -80,6 +77,10 @@ export class Feed extends HTMLElement {
             divtext.setAttribute("class", "text")
             profileGeneral.appendChild(divtext)
 
+            const divNames= this.ownerDocument.createElement('div')
+            divNames.setAttribute("class", "divNames")
+            divtext.appendChild(divNames)
+
             const divFeed = this.ownerDocument.createElement("div")
             divFeed.setAttribute("class", "Feed")
             sectionContainer.appendChild(divFeed)
@@ -89,25 +90,33 @@ export class Feed extends HTMLElement {
             user.setAttribute("class", "img-profile")
             divUser.appendChild(user)
 
+            const userdiv= this.ownerDocument.createElement('div')
+            userdiv.setAttribute("class", "divuser")
+            divNames.appendChild(userdiv)
+
             const nameUser = this.ownerDocument.createElement("h1")
             nameUser.innerText = `${this.user_name}`
-            divtext.appendChild(nameUser)
+            userdiv.appendChild(nameUser)
 
             const Name = this.ownerDocument.createElement("p")
             Name.innerText = `${this.name}`
-            divtext.appendChild(Name)
+            userdiv.appendChild(Name)
+
+            const btndiv= this.ownerDocument.createElement('div')
+            btndiv.setAttribute("class", "divbtn")
+            divNames.appendChild(btndiv)
 
             const btnUser = this.ownerDocument.createElement("button")
             btnUser.innerHTML = "Edit Profile"
-            divtext.appendChild(btnUser)
-            btnUser.addEventListener("click", () => {
-                console.log("click edit")
-                dispatch(navigate(screens.EDIT_PROFILE))
-            })
+            btndiv.appendChild(btnUser)
+
+            const descriptiondiv= this.ownerDocument.createElement('div')
+            descriptiondiv.setAttribute("class", "divdescrip")
+            divtext.appendChild(descriptiondiv)
 
             const info = this.ownerDocument.createElement("p")
             info.innerText = `${this.info_gym} / ${this.info_times} / ${this.description}`
-            divtext.appendChild(info)
+            descriptiondiv.appendChild(info)
 
 
             // const photo1 = this.ownerDocument.createElement("img")
