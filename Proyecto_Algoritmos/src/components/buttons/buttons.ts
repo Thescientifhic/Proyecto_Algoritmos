@@ -1,3 +1,5 @@
+import data from "../../service/data";
+
 export enum AttributeButtons {
     "delete_button" = "delete_button",
     "favorite_button" = "favorite_button",
@@ -135,5 +137,3 @@ customElements.define('app-buttons',Buttons);
 
 //}
 //}
-
-

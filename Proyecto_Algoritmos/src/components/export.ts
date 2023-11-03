@@ -10,4 +10,5 @@ export{default as LogIn} from "./SignIn/Signin";
 export{default as SignUp} from "./SignUp/signup";
 export{default as Upload} from "./uploadd/upload";
 export { Profile } from "../screens/Profile";
+export {default as Message} from "./Users/Message";
 export { EditProfile } from "./EditProfile/EditProfile";
