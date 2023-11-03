@@ -1,9 +1,12 @@
+<<<<<<< HEAD
 body{
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
+=======
+>>>>>>> origin/sebastian
 section{
     display: flex;
     flex-direction: column;
@@ -14,16 +17,25 @@ section{
     border-radius: 40px;
     padding: 40px;
     width: 600px;
+<<<<<<< HEAD
     margin-top: 100px;
     margin-left: 400px;
 
 }
 
 .img-agg {
+=======
+}
+
+
+
+.img-out {
+>>>>>>> origin/sebastian
     padding-top: 10px;
     width: 200px;
     padding-bottom: 20px;
 }
+<<<<<<< HEAD
 .go-out {
     background: none;
     border: none;
@@ -36,6 +48,8 @@ section{
     width: 20px;
 }
 
+=======
+>>>>>>> origin/sebastian
 
 h1 {
     color: white;
