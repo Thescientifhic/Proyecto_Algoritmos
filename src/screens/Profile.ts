@@ -1,9 +1,9 @@
 import "../components/export"
 import "../components/nav/nav"
-import { feedAttribute } from "../components/feedprofile/FeedProfile";
 import firebase, { getDataProfile } from "../utils/firebase"
 import {getDataPost,} from "../utils/firebase";
 import { getDataImgProfile } from "../utils/firebase";
+import { feedAttribute } from "../components/FeedProfile/FeedProfile";
 
 export class Profile extends HTMLElement {
 
@@ -36,17 +36,20 @@ async render() {
             link.setAttribute("href", "/src/screens/Profile.css")
             this.shadowRoot.appendChild(link);
 
+            const divContainerAll = this.ownerDocument.createElement("div")
+            divContainerAll.setAttribute("class", "containerAll")
+            this.shadowRoot?.appendChild(divContainerAll)
+
             const divcontainer = this.ownerDocument.createElement("div")
             divcontainer.setAttribute("class", "container")
-            this.shadowRoot?.appendChild(divcontainer)
+            divContainerAll.appendChild(divcontainer)
 
             const divcontainer2 = this.ownerDocument.createElement("div")
             divcontainer2.setAttribute("class", "container2")
-            this.shadowRoot?.appendChild(divcontainer2)
+            divContainerAll.appendChild(divcontainer2)
 
             const myNav = this.ownerDocument.createElement("my-nav");
-            divcontainer.appendChild(myNav)
-
+            this.shadowRoot?.appendChild(myNav)
 
             dataProfile.forEach((profile) => {
                 const Myfeed = this.ownerDocument.createElement("my-feed");

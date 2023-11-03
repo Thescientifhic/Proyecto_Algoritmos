@@ -13,12 +13,12 @@ export class Editcontainer extends HTMLElement {
     connectedCallback() {
         this.render();
     }
-
-
+    
+    
     render() {
         if (this.shadowRoot) {
-            console.log("My Edit")
-          this.shadowRoot.innerHTML = '';
+           
+          this.shadowRoot.innerHTML = ``;
 
             // const link = this.ownerDocument.createElement("link")
             // link.setAttribute("rel", "stylesheet")
@@ -28,14 +28,14 @@ export class Editcontainer extends HTMLElement {
             const divcontainer = this.ownerDocument.createElement("div")
             divcontainer.setAttribute("class", "container")
             this.shadowRoot?.appendChild(divcontainer)
-
+    
             const myNav = this.ownerDocument.createElement("my-nav");
-            this.shadowRoot.appendChild(myNav);
-
+            this.shadowRoot?.appendChild(myNav);
+    
             const MyEdit = this.ownerDocument.createElement("my-edit");
             divcontainer.appendChild(MyEdit)
         }
-    }
+    } 
 }
-
+    
 customElements.define("my-editcontainer", Editcontainer)

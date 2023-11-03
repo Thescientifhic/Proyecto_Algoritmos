@@ -1,4 +1,7 @@
 import firebase from "../../utils/firebase";
+import { navigate } from "../../store/actions";
+import { addObserver, dispatch } from "../../store/index";
+import { screens } from "../../types/navigation";
 
 export enum AttributeUpload {
      "img" = "img",
@@ -64,10 +67,22 @@ export default class Upload extends HTMLElement{
 
         const section = this.ownerDocument.createElement('section');
 
+        // Boton salir
+        const goOut = this.ownerDocument.createElement("button");
+        goOut.classList.add('go-out');
+        const imgOut = this.ownerDocument.createElement("img");
+        imgOut.setAttribute("src", "/dist/img/X.png");
+        imgOut.classList.add('img-out');
+        goOut.appendChild(imgOut)
+        section.appendChild(goOut);
+        goOut.addEventListener("click", () => {
+            console.log("click main")
+            dispatch(navigate(screens.MAIN))
+        })
+
         const h1_Element = this.ownerDocument.createElement('h1');
         h1_Element.innerText = "Upload a new post to your feed";
         section.appendChild(h1_Element);
-
 
         // Falta el de salir y hacer lo que pidio el profe
 
@@ -77,7 +92,7 @@ export default class Upload extends HTMLElement{
 
         const img = this.ownerDocument.createElement('img');
         img.setAttribute("src", "/dist/img/upload.png");
-        img.classList.add('img-out');
+        img.classList.add('img-agg');
         section.appendChild(img);
 
         const loginForm = this.ownerDocument.createElement("form");

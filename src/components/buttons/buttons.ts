@@ -1,3 +1,5 @@
+import data from "../../service/data";
+
 export enum AttributeButtons {
     "delete_button" = "delete_button",
     "favorite_button" = "favorite_button",
@@ -75,6 +77,11 @@ export default class Buttons extends HTMLElement{
             like_button_Img.setAttribute("src", "/dist/img/Like.png");
             like_button.appendChild(like_button_Img)
 
+            // like_button.addEventListener("click", async () => {
+            //     await this.match(index); // Espera a que se complete la eliminación
+            //     console.log("Elemento match"); // Imprime un mensaje después de eliminar
+            //   });
+
            this.shadowRoot.appendChild(like_button)
         }
     }
@@ -135,5 +142,3 @@ customElements.define('app-buttons',Buttons);
 
 //}
 //}
-
-
