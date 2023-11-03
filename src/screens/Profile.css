@@ -1,0 +1,17 @@
+.upload-image{
+    height: 25%;
+    width: 25%;
+    margin: 0.5%;
+    min-width: 200px;
+    min-height: 200px;
+    
+}
+
+.containerAll{
+    right: 0;
+    position: absolute;
+}
+
+.my-profile{
+    position: relative;
+}
