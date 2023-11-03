@@ -72,7 +72,7 @@ export default class SignIn extends HTMLElement {
             console.log("click out")
             dispatch(navigate(screens.LANDING))
         })
-        
+
         const imgOut = this.ownerDocument.createElement("img");
         imgOut.setAttribute("src", "/dist/img/X.png");
         imgOut.classList.add('img-out');

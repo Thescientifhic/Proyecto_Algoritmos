@@ -76,7 +76,7 @@ export default class SignUp extends HTMLElement {
             console.log("click edit")
             dispatch(navigate(screens.LANDING))
         })
-        
+
 
 
         // Nombre

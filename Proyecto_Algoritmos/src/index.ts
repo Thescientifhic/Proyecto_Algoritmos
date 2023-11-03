@@ -19,7 +19,7 @@ class AppContainer extends HTMLElement {
     }
 
     connectedCallback() {
-        this.render()   
+        this.render()
     }
 
     render() {
@@ -59,7 +59,7 @@ class AppContainer extends HTMLElement {
                     this.shadowRoot.appendChild(landing);
                 break;
 
-                
+
                 case screens.SING_UP:
                     this.shadowRoot.innerHTML = ``
                     const signup = this.ownerDocument.createElement("app-signup");

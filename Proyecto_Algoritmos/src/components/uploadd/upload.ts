@@ -1,11 +1,17 @@
-
-
+import firebase from "../../utils/firebase";
+import { navigate } from "../../store/actions";
+import { addObserver, dispatch } from "../../store/index";
+import { screens } from "../../types/navigation";
 
 export enum AttributeUpload {
      "img" = "img",
     "btn" = "btn",
 
 
+}
+
+const formPost  = {
+    img: "",
 }
 
 export default class Upload extends HTMLElement{
@@ -42,6 +48,14 @@ export default class Upload extends HTMLElement{
         this.render();
     }
 
+    changeUrl(e: any){
+        formPost.img = e.target.value;
+    }
+
+    submitForm(){
+        firebase.addPost(formPost);
+    }
+
     render(){
         if(this.shadowRoot)
         this.shadowRoot.innerHTML = '';
@@ -52,6 +66,19 @@ export default class Upload extends HTMLElement{
         this.shadowRoot?.appendChild(link);
 
         const section = this.ownerDocument.createElement('section');
+
+        // Boton salir
+        const goOut = this.ownerDocument.createElement("button");
+        goOut.classList.add('go-out');
+        const imgOut = this.ownerDocument.createElement("img");
+        imgOut.setAttribute("src", "/dist/img/X.png");
+        imgOut.classList.add('img-out');
+        goOut.appendChild(imgOut)
+        section.appendChild(goOut);
+        goOut.addEventListener("click", () => {
+            console.log("click main")
+            dispatch(navigate(screens.MAIN))
+        })
 
         const h1_Element = this.ownerDocument.createElement('h1');
         h1_Element.innerText = "Upload a new post to your feed";
@@ -65,15 +92,28 @@ export default class Upload extends HTMLElement{
 
         const img = this.ownerDocument.createElement('img');
         img.setAttribute("src", "/dist/img/upload.png");
-        img.classList.add('img-out');
+        img.classList.add('img-agg');
         section.appendChild(img);
+
+        const loginForm = this.ownerDocument.createElement("form");
+        loginForm.classList.add('form');
+        section.appendChild(loginForm);
+
+        // Link imagen
+        const img_link = this.ownerDocument.createElement("input");
+        img_link.setAttribute("type", "text");
+        img_link.setAttribute("placeholder", "Url image");
+        img_link.addEventListener("change", this.changeUrl);
+        img_link.classList.add('inpuut');
+        loginForm.appendChild(img_link);
+
 
         //boton seleccionar imagen
         const upload_button = this.ownerDocument.createElement('button');
-        upload_button.innerText = `Choose a photo from your computer`;
+        upload_button.innerText = `upload your picture`;
+        upload_button.addEventListener("click", this.submitForm);
         upload_button.classList.add('green-button');
         section.appendChild(upload_button);
-
         this.shadowRoot?.appendChild(section);
 
     }

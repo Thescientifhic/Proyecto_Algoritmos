@@ -14,14 +14,14 @@ section{
     height: 40px;
   }
 
-  form {
+form {
 
-background-color: #111418;
-border-radius: 40px;
-width: 400px;
-height: 500px;
+    background-color: #111418;
+    border-radius: 40px;
+    width: 400px;
+    height: 500px;
 
-  }
+}
 
 .form {
     display: flex;

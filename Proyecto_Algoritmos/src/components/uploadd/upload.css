@@ -4,16 +4,29 @@ section{
     justify-content: center; /* Centrar horizontalmente */
     align-items: center;
     padding-top: 20px;
-    background-color: #111418;
+    background-color: #181E22;
+    border-radius: 40px;
+    padding: 40px;
     width: 600px;
 }
 
-
-
-.img-out {
+.img-agg {
     padding-top: 10px;
     width: 200px;
+    padding-bottom: 20px;
 }
+.go-out {
+    background: none;
+    border: none;
+    width: 5px;
+    height: 5px;
+    padding-left: 320px;
+}
+
+.img-out {
+    width: 20px;
+}
+
 
 h1 {
     color: white;
@@ -29,14 +42,22 @@ hr{
     width: 80%;
 }
 
-
+.inpuut {
+    background-color: white;
+    border-radius: 30px;
+    height: 30px;
+    width: 250px;
+    border: none;
+    margin: 5px;
+    padding-left: 20px;
+}
 .green-button {
     background-color: #55FF00;
     border-radius: 30px;
     height: 45px;
     width: 280px;
     border: none;
-    margin-top: 50px;
+    margin-top: 20px;
     font-weight: bolder;
     font-family: 'DM Sans', sans-serif;
     font-size: small;
