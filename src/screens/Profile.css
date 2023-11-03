@@ -1,10 +1,10 @@
 .upload-image{
-    height: 25%;
-    width: 25%;
+    height: 250px;
+    width: 250px;
     margin: 0.5%;
     min-width: 200px;
     min-height: 200px;
-    
+
 }
 
 .containerAll{
