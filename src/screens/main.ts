@@ -1,7 +1,7 @@
 // import data from "../service/data";
 import { AttributeFunctioncard } from "../components/functionCard/function";
 import { AttributeCarousel } from "../components/carousel/carousel";
-import firebase, { actualizarPost } from "../utils/firebase"
+import firebase, { updatePost } from "../utils/firebase"
 import {getDataPost,} from "../utils/firebase";
 
 import "../components/export";
@@ -31,7 +31,7 @@ export class MainContainer extends HTMLElement {
         // Marca el elemento como eliminado
         dataPost[index].deleted = true;
         // Vuelve a renderizar la vista para reflejar los cambios
-        actualizarPost(dataPost[index].id, true)
+        updatePost(dataPost[index].id, true)
         this.render();
       }
 
