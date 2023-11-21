@@ -6,7 +6,8 @@ export enum AttributeFunctioncard {
     "btn_info" ="btn_info",
     "delete_button" = "delete_button",
     "favorite_button" = "favorite_button",
-    "like_button" = "like_button"
+    "like_button" = "like_button",
+    "index" = "index"
 
 }
 
@@ -16,6 +17,7 @@ export default class Functioncard extends HTMLElement{
     delete_button?: string = "";
     favorite_button?: string = "";
     like_button?: string = "";
+    index: string = ""
 
 
     static get observedAttributes(){
@@ -25,6 +27,7 @@ export default class Functioncard extends HTMLElement{
             delete_button: null,
             favorite_button: null,
             like_button: null,
+            index: null
 
         }
         return Object.keys(attrs);
@@ -70,6 +73,7 @@ export default class Functioncard extends HTMLElement{
         buttons.setAttribute(AttributeButtons.delete_button, `${this.delete_button}`);
         buttons.setAttribute(AttributeButtons.favorite_button, `${this.favorite_button}`);
         buttons.setAttribute(AttributeButtons.like_button, `${this.like_button}`);
+        buttons.setAttribute(AttributeButtons.index, `${this.index}`)
 
         container.appendChild(infoProfile);
         container.appendChild(buttons);

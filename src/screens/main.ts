@@ -1,16 +1,18 @@
 // import data from "../service/data";
 import { AttributeFunctioncard } from "../components/functionCard/function";
 import { AttributeCarousel } from "../components/carousel/carousel";
-import firebase from "../utils/firebase"
+import firebase, { actualizarPost } from "../utils/firebase"
 import {getDataPost,} from "../utils/firebase";
 
 import "../components/export";
 import "../components/nav/nav";
+import { addObserver } from "../store";
 
-class MainContainer extends HTMLElement {
+export class MainContainer extends HTMLElement {
   constructor() {
     super();
     this.attachShadow({ mode: "open" });
+    addObserver(this)
   }
 
   connectedCallback() {
@@ -20,7 +22,7 @@ class MainContainer extends HTMLElement {
   async deleteItem(index: number) {
     try {
       const dataPost = await getDataPost(); // Obtiene la lista actualizada de datos desde Firebase
-
+      console.log(index)
       if (index >= 0 && index < dataPost.length) {
         // Verifica si la propiedad 'deleted' no existe en el objeto y crea la propiedad como 'false'
         if (!dataPost[index].hasOwnProperty('deleted')) {
@@ -29,6 +31,7 @@ class MainContainer extends HTMLElement {
         // Marca el elemento como eliminado
         dataPost[index].deleted = true;
         // Vuelve a renderizar la vista para reflejar los cambios
+        actualizarPost(dataPost[index].id, true)
         this.render();
       }
 
@@ -56,7 +59,7 @@ class MainContainer extends HTMLElement {
             link.setAttribute("href", "/src/screens/main.css")
             this.shadowRoot?.appendChild(link);
 
-            if (index === 0) { // Verifica si el índice es igual a 0
+            if (user.deleted === false) { // Verifica si el índice es igual a 0
               const Carousel = this.ownerDocument.createElement("app-carousel");
               Carousel.setAttribute(AttributeCarousel.btnleft, " ");
               Carousel.setAttribute(AttributeCarousel.img, user.img);
@@ -73,12 +76,13 @@ class MainContainer extends HTMLElement {
               functionCard.setAttribute(AttributeFunctioncard.delete_button, " ");
               functionCard.setAttribute(AttributeFunctioncard.favorite_button, " ");
               functionCard.setAttribute(AttributeFunctioncard.like_button, " ");
+              functionCard.setAttribute(AttributeFunctioncard.index, `${index}`)
 
               // Agrega un evento de clic al botón de eliminación
-              functionCard.addEventListener("click", async () => {
-                await this.deleteItem(index); // Espera a que se complete la eliminación
-                console.log("Elemento eliminado"); // Imprime un mensaje después de eliminar
-              });
+              // functionCard.addEventListener("click", async () => {
+              //   await this.deleteItem(index); // Espera a que se complete la eliminación
+              //   console.log("Elemento eliminado"); // Imprime un mensaje después de eliminar
+              // });
 
               if (this.shadowRoot) {
                 this.shadowRoot.appendChild(functionCard);
