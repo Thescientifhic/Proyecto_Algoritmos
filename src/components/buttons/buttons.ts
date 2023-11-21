@@ -1,6 +1,6 @@
 import data from "../../service/data";
 import { notifyObservers } from "../../store";
-import { actualizarPost, getDataPost } from "../../utils/firebase";
+import { actualizarPost, añadirMatch, getDataPost } from "../../utils/firebase";
 import { MainCointainer } from "../export";
 
 export enum AttributeButtons {
@@ -78,7 +78,9 @@ export default class Buttons extends HTMLElement{
             like_button.appendChild(like_button_Img)
 
             like_button.addEventListener("click", async () => {
-                
+                añadirMatch(parseInt(this.index))
+                actualizarPost(dataPost[parseInt(this.index)].id, true)
+                notifyObservers()
                 console.log("Elemento match"); // Imprime un mensaje después de eliminar
               });
 

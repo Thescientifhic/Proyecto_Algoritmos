@@ -14,6 +14,7 @@ import { DataProfile } from "../types/profile";
 import { DataImgProfile } from "../types/profileImg";
 import { DataMsg } from "../types/message";
 import { doc, updateDoc } from "firebase/firestore";
+import data from "../service/data";
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -100,6 +101,7 @@ export default {
   getDataImgProfile,
 };
 
+//función para el botón de eliminar
 export const actualizarPost = async (ref: string, state: boolean) => {
   
   const postRef = doc(db, "post", `${ref}`);
@@ -108,3 +110,13 @@ export const actualizarPost = async (ref: string, state: boolean) => {
     deleted: state,
   });
 };
+
+//función para el botón de match
+export const añadirMatch = async (index: number) => {
+  const dataPost = await getDataPost();
+  const docRef = await addDoc(collection(db, "match"), {
+    id: dataPost[index].id,
+    img: dataPost[index].img,
+    name: dataPost[index].name
+  });
+}
