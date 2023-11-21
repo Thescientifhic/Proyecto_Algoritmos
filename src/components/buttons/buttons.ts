@@ -1,6 +1,6 @@
 import data from "../../service/data";
 import { notifyObservers } from "../../store";
-import { actualizarPost, añadirMatch, getDataPost } from "../../utils/firebase";
+import { updatePost, addMatch, getDataPost } from "../../utils/firebase";
 import { MainCointainer } from "../export";
 
 export enum AttributeButtons {
@@ -64,7 +64,7 @@ export default class Buttons extends HTMLElement{
             delete_button_Img.setAttribute("src", "/dist/img/Delete.png");
             delete_button.appendChild(delete_button_Img)
             delete_button_Img.addEventListener('click', async () => {
-                actualizarPost(dataPost[parseInt(this.index)].id, true)
+                updatePost(dataPost[parseInt(this.index)].id, true)
                 console.log(this.index)
                 console.log("Elemento eliminado"); // Imprime un mensaje después de eliminar
                 notifyObservers()
@@ -78,8 +78,8 @@ export default class Buttons extends HTMLElement{
             like_button.appendChild(like_button_Img)
 
             like_button.addEventListener("click", async () => {
-                añadirMatch(parseInt(this.index))
-                actualizarPost(dataPost[parseInt(this.index)].id, true)
+                addMatch(parseInt(this.index))
+                updatePost(dataPost[parseInt(this.index)].id, true)
                 notifyObservers()
                 console.log("Elemento match"); // Imprime un mensaje después de eliminar
               });

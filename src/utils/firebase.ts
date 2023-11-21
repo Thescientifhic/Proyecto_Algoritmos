@@ -102,17 +102,15 @@ export default {
 };
 
 //función para el botón de eliminar
-export const actualizarPost = async (ref: string, state: boolean) => {
-  
+export const updatePost = async (ref: string, state: boolean) => {
   const postRef = doc(db, "post", `${ref}`);
-
   await updateDoc(postRef, {
     deleted: state,
   });
 };
 
 //función para el botón de match
-export const añadirMatch = async (index: number) => {
+export const addMatch = async (index: number) => {
   const dataPost = await getDataPost();
   const docRef = await addDoc(collection(db, "match"), {
     id: dataPost[index].id,
