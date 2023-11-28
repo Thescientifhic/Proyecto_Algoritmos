@@ -7,36 +7,35 @@ section{
     display: flex;
     justify-content: center; /* Centrar horizontalmente */
     align-items: center;
-    padding-top: 20px;
+    padding-top: 2%;
 }
 .logoI {
-    padding: 20px;
+    padding: 2%;
     height: 40px;
-  }
+}
 
-  form {
+form {
+    background-color: #111418;
+    border-radius: 40px;
+    width: 30%;
+    height: 460px;
 
-background-color: #111418;
-border-radius: 40px;
-width: 400px;
-height: 460px;
-
-  }
+}
 
 .form {
     display: flex;
     align-items: center;
     flex-direction: column;
-    padding-top: 40px;
+    padding-top: 2%;
 
 }
 
 .go-out {
     background: none;
     border: none;
-    width: 5px;
+    width: 0.5%;
     height: 5px;
-    padding-left: 280px;
+    padding-left: 70%;
 }
 
 .img-out {
@@ -48,17 +47,17 @@ h1 {
     font-size: 25px;
     font-family: 'DM Sans', sans-serif;
     font-weight: 500;
-    padding-top: 10px;
-    padding-bottom: 40px;
+    padding-top: 1%;
+    padding-bottom: 8%;
 }
 .inpuut {
     background-color: white;
     border-radius: 30px;
     height: 45px;
-    width: 250px;
+    width: 60%;
     border: none;
-    margin: 5px;
-    padding-left: 20px;
+    margin: 1.5%;
+    padding-left: 2%;
 }
 
 .loginbtn {
@@ -82,3 +81,90 @@ a {
     font-weight: 100;
     font-size: small;
 }
+
+@media (max-width: 600px) {
+
+    section{
+        display: flex;
+        justify-content: center; /* Centrar horizontalmente */
+        align-items: center;
+        padding-top: 2%;
+    }
+    .logoI {
+        padding: 10px;
+        height: 20px;
+      }
+    
+    form {
+        background-color: #111418;
+        border-radius: 40px;
+        width: 350px;
+        height: 400px;
+    
+    }
+    
+    .form {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        padding-top: 40px;
+    
+    }
+    
+    .go-out {
+        background: none;
+        border: none;
+        width: 5px;
+        height: 5px;
+        padding-left: 280px;
+    }
+    
+    .img-out {
+        width: 20px;
+    }
+    
+    h1 {
+        color: white;
+        font-size: 25px;
+        font-family: 'DM Sans', sans-serif;
+        font-weight: 500;
+        padding-top: 10px;
+        padding-bottom: 40px;
+    }
+    .inpuut {
+        background-color: white;
+        border-radius: 30px;
+        height: 45px;
+        width: 250px;
+        border: none;
+        margin: 5px;
+        padding-left: 20px;
+    }
+    
+    .loginbtn {
+        background-color: #55FF00;
+        border-radius: 30px;
+        height: 45px;
+        width: 280px;
+        border: none;
+        margin-top: 50px;
+        font-weight: bolder;
+        font-family: 'DM Sans', sans-serif;
+        font-size: larger;
+        color: white;
+    
+    }
+    
+    a {
+        color: white;
+        padding-top: 40px;
+        font-family: 'DM Sans', sans-serif;
+        font-weight: 100;
+        font-size: small;
+    }
+    
+
+}
+
+
+
