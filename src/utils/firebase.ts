@@ -144,9 +144,24 @@ const loginUser = async ({
 //Storage
 
 const uploadFile = async (file: File) => {
+ try {
+
   const storageRef = ref(storage, file.name);
   const res = await uploadBytes(storageRef, file);
+  const img = await getDownloadURL(storageRef)
   console.log("Se subió la imagen", res);
+
+  const collectionRef = collection(db, "profileImg");
+  const docRef = await addDoc(collectionRef, { img }); // Guarda la URL en un documento de la colección
+
+  console.log("Imagen subida a Storage:", res);
+  console.log("URL de descarga guardada en Firestore:", docRef.id);
+
+  return img; // Devuelve la URL de descarga
+} catch (error) {
+  console.error("Error al subir la imagen:", error);
+  throw error;
+}
 }
 
 const getProfilePicture = (imgName: any) => {

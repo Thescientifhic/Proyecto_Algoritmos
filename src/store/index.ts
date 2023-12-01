@@ -8,14 +8,14 @@ import { navigate, setUserCredentials } from "./actions";
 
 
 
-onAuthStateChanged(auth, (user) => {
-  if (user) {
-    user.email !== null ? dispatch(setUserCredentials(user.email)) : '';
-    dispatch(navigate(screens.MAIN));
-  } else {
-    dispatch(navigate(screens.LANDING));
-  }
-});
+// onAuthStateChanged(auth, (user) => {
+//   if (user) {
+//     user.email !== null ? dispatch(setUserCredentials(user.email)) : '';
+//     dispatch(navigate(screens.MAIN));
+//   } else {
+//     dispatch(navigate(screens.LANDING));
+//   }
+// });
 
 
 const emptyState = {
