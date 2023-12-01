@@ -38,11 +38,13 @@ export class EditProfile extends HTMLElement {
            const name = this.ownerDocument.createElement("input");
            name.setAttribute("type", "text");
            name.setAttribute("placeholder", "Name");
+           name.setAttribute("class","inputName")
            inputs1.appendChild(name);
 
            const Lastname = this.ownerDocument.createElement("input");
            Lastname.setAttribute("type", "text");
            Lastname.setAttribute("placeholder", "User Name");
+           Lastname.setAttribute("class", "inputUser")
            inputs1.appendChild(Lastname)
 
            const Gymgo = this.ownerDocument.createElement("input")
