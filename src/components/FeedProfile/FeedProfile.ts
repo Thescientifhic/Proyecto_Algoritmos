@@ -1,6 +1,3 @@
-import { navigate } from "../../store/actions";
-import { dispatch } from "../../store/index";
-import { screens } from "../../types/navigation";
 
 export enum feedAttribute {
     "profile" = "profile",
@@ -100,10 +97,6 @@ export class Feed extends HTMLElement {
             const btnUser = this.ownerDocument.createElement("button")
             btnUser.innerHTML = "Edit Profile"
             divtext.appendChild(btnUser)
-            btnUser.addEventListener("click", () => {
-                console.log("click edit")
-                dispatch(navigate(screens.EDIT_PROFILE))
-            })
 
             const info = this.ownerDocument.createElement("p")
             info.innerText = `${this.info_gym} / ${this.info_times} / ${this.description}`

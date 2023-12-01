@@ -1,4 +1,5 @@
-body {
+@media (min-width: 701px) {
+  body {
     background-image: url('/dist/img/Landing.png');
     background-size: cover; /* Para ajustar el tamaño de la imagen */
     background-repeat: no-repeat; /* Para evitar que se repita la imagen */
@@ -11,34 +12,34 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px;
+    padding: 1%;
   }
 
   /* Estilos para el logo */
   img {
-    margin-right: 10px; /* Margen a la derecha para separar el botón */
+    margin-right: 1%; /* Margen a la derecha para separar el botón */
     height: 40px;
   }
 
   /* Estilos para el botón de inicio de sesión */
   .white-button {
-   border-radius: 20px;
+   border-radius: 30px;
    background-color: white;
-   height: 40px;
-   width: 120px;
+   height: 60px;
+   width: 12%;
    border: none;
    font-size: medium;
    font-weight: bold
   }
 
   .green-button {
-    border-radius: 20px;
+    border-radius: 30px;
     background-color: #55FF00;
     color: white;
-    height: 40px;
-    width: 200px;
+    height: 60px;
+    width: 20%;
     border: none;
-    font-size: medium;
+    font-size: larger;
     font-weight: bold;
     display: block; /* Para que ocupe el ancho completo */
     margin: 0 auto; /* Margen automático a izquierda y derecha para centrarlo horizontalmente */
@@ -53,7 +54,7 @@ nav {
     font-size: 70px;
     font-weight: bold;
     font-family: 'Roboto', sans-serif;
-    padding-top: 150px;
+    padding-top: 10%;
 
 
   }
@@ -62,5 +63,71 @@ nav {
   button.create-account {
     margin: 0 auto;
     border-radius: 20px;
+  }  
 }
 
+@media (max-width: 700px) {
+  body {
+    background-image: none; 
+    background-color:#55FF00; 
+    display: initial;
+  }
+  
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1%;
+  }
+
+  /* Estilos para el logo */
+  img {
+    margin-right: 1%; /* Margen a la derecha para separar el botón */
+    height: 25px;
+  }
+
+  /* Estilos para el botón de inicio de sesión */
+  .white-button {
+   border-radius: 20px;
+   background-color: white;
+   height: 30px;
+   width: 12%;
+   border: none;
+   font-size: medium;
+   font-weight: bold
+  }
+
+  .green-button {
+    border-radius: 20px;
+    background-color: #55FF00;
+    color: white;
+    height: 40px;
+    width: 20%;
+    border: none;
+    font-size: medium;
+    font-weight: bold;
+    display: block; /* Para que ocupe el ancho completo */
+    margin: 0 auto; /* Margen automático a izquierda y derecha para centrarlo horizontalmente */
+    text-align: center;
+   }
+
+  /* Estilos para el título h1 y el botón de creación de cuenta */
+  h1 {
+    text-align: center; /* Centra el texto */
+    display: block; /* Para que ocupen el ancho completo de su contenedor */
+    color: white;
+    font-size: 50px;
+    font-weight:300;
+    font-family: 'Roboto', sans-serif;
+    padding-top: 20%;
+
+
+  }
+
+  /* Estilos para centrar el botón de creación de cuenta junto al texto */
+  button.create-account {
+    margin: 0 auto;
+    border-radius: 20px;
+  }  
+  
+}

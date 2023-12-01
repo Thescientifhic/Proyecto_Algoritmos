@@ -61,14 +61,6 @@ class Nav extends HTMLElement{
                 dispatch(navigate(screens.EDIT_PROFILE))
             })
 
-            const iconPrueba5 = this.ownerDocument.createElement("nav-button")
-            iconPrueba5.setAttribute("icon", "/dist/img/campana.png")
-            nav.appendChild(iconPrueba5);
-            iconPrueba5.addEventListener("click", () => {
-                console.log("click message2")
-                dispatch(navigate(screens.MESSAGE))
-            })
-
             const iconPrueba6 = this.ownerDocument.createElement("nav-button")
             iconPrueba6.setAttribute("icon", "/dist/img/agregar.png")
             nav.appendChild(iconPrueba6);
@@ -76,6 +68,15 @@ class Nav extends HTMLElement{
                 console.log("click new post")
                 dispatch(navigate(screens.NEW_POST))
             })
+
+            const iconPrueba5 = this.ownerDocument.createElement("nav-button")
+            iconPrueba5.setAttribute("icon", "/dist/img/salida.png")
+            nav.appendChild(iconPrueba5);
+            iconPrueba5.addEventListener("click", () => {
+                console.log("click Landing")
+                dispatch(navigate(screens.LANDING))
+            })
+
 
             const user = this.ownerDocument.createElement("img")
             user.setAttribute("src", "/dist/img/usuario.png")
