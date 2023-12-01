@@ -107,6 +107,7 @@ export class Feed extends HTMLElement {
 
             const info = this.ownerDocument.createElement("p")
             info.innerText = `${this.info_gym} / ${this.info_times} / ${this.description}`
+            info.setAttribute("class", "info")
             divtext.appendChild(info)
 
 

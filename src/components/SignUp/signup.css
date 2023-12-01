@@ -3,7 +3,7 @@
 }
 */
 
-@media(min-width: 701px) {
+@media(min-width: 801px) {
     section{
         display: flex;
         justify-content: center; /* Centrar horizontalmente */
@@ -84,7 +84,7 @@
     }
 }
 
-@media (max-width: 700px) {
+@media (max-width: 800px) {
     section {
         display: flex;
         justify-content: center;
