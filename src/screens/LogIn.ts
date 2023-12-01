@@ -1,11 +1,15 @@
 import "../components/export";
-
+import { addObserver } from "../store";
+import { screens } from "../types/navigation";
+import { ScreenActions } from "../types/store";
+import { appState, dispatch } from "../store";
 
 
 class LogInContainer extends HTMLElement {
   constructor() {
     super();
     this.attachShadow({ mode: "open" });
+    addObserver(this);
   }
 
   connectedCallback() {
@@ -14,7 +18,7 @@ class LogInContainer extends HTMLElement {
 
 
 
-  render() {
+  async render() {
     if (this.shadowRoot) {
       this.shadowRoot.innerHTML = '';
 

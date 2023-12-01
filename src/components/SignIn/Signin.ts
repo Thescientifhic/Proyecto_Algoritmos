@@ -37,6 +37,7 @@ export default class SignIn extends HTMLElement {
     constructor() {
         super();
         this.attachShadow({ mode: "open" });
+        addObserver(this);
     }
 
     connectedCallback() {
@@ -47,7 +48,7 @@ export default class SignIn extends HTMLElement {
         Firebase.loginUser(credentials);
       }
 
-    render() {
+      async render() {
         if (this.shadowRoot) this.shadowRoot.innerHTML = '';
 
         const link = this.ownerDocument.createElement("link")
@@ -119,7 +120,11 @@ export default class SignIn extends HTMLElement {
         const loginButton = this.ownerDocument.createElement("button");
         loginButton.classList.add('loginbtn');
         loginButton.innerText = "Log In";
-        loginButton.addEventListener("click", this.handleLoginButton);
+        // loginButton.addEventListener("click", this.handleLoginButton);
+        loginButton.addEventListener("click", () => {
+            console.log("click Login")
+            dispatch(navigate(screens.MAIN))
+        })
 
         // Agregar elementos al formulario
         loginForm.appendChild(goOut);
