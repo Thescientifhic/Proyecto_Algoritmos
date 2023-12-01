@@ -14,7 +14,7 @@ import { DataProfile } from "../types/profile";
 import { DataImgProfile } from "../types/profileImg";
 import { DataMsg } from "../types/message";
 import { doc, updateDoc } from "firebase/firestore";
-import data from "../service/data";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, setPersistence, browserLocalPersistence} from "firebase/auth";import data from "../service/data";
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -32,6 +32,7 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
+const auth = getAuth(app);
 
 const postCollection = collection(db, "post");
 
@@ -94,11 +95,48 @@ const addPost = async (post: any) => {
   }
 };
 
+//Authentification
+
+const createUser = async (email: string,password: string, name: string) => {
+  //Primer paso: Crear usuario con auth
+  try {
+    const userCredential = await createUserWithEmailAndPassword(auth,email,password);
+    console.log(userCredential.user);
+    //Segundo paso: Agregar la info restante a la db con el id del usuario
+    const where = doc(db, "profile", userCredential.user.uid);
+    const data = {
+      name: name,
+    }
+    await setDoc(where, data);
+    //Tercer paso: Retornar true para dejarlo pasar de pantalla
+    return true;
+  } catch (error: any) {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    console.log(errorCode,errorMessage);
+    alert("Vuelve a intentarlo");
+    return false;
+  }
+}
+
+const logIn = async (email: string, password: string) => {
+  setPersistence(auth,browserLocalPersistence).then(() =>{
+    return signInWithEmailAndPassword(auth,email,password);
+  }).catch((error)=> {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    console.error(errorCode,errorMessage);
+  })
+}
+
+
 export default {
   getDataPost,
   getDataProfile,
   addPost,
   getDataImgProfile,
+  createUser,
+  logIn,
 };
 
 //función para el botón de eliminar
@@ -118,3 +156,4 @@ export const addMatch = async (index: number) => {
     name: dataPost[index].name
   });
 }
+

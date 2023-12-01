@@ -1,7 +1,14 @@
+import firebase from "../../utils/firebase";
+
 export enum AttributeLogIn {
     btnSignIn = "btnSignIn",
     btnAccount = "btnAccount"
 }
+
+const formPost = {
+    email: "",
+    password: "",
+};
 
 export default class LogIn extends HTMLElement {
     btnSignIn?: string;
@@ -34,6 +41,18 @@ export default class LogIn extends HTMLElement {
 
     connectedCallback() {
         this.render();
+    }
+
+    async submitForm(){
+        const resp = await firebase.logIn(formPost.email,formPost.password);
+    }
+
+    changeTitle(e: any){
+        formPost.email = e.target.value;
+    }
+
+    changeDescription(e:any){
+        formPost.password = e.target.value;
     }
 
     render() {
