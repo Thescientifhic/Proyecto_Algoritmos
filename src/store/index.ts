@@ -8,19 +8,20 @@ import { navigate, setUserCredentials } from "./actions";
 
 
 
-// onAuthStateChanged(auth, (user) => {
-//   if (user) {
-//     user.email !== null ? dispatch(setUserCredentials(user.email)) : '';
+//  onAuthStateChanged(auth, (user) => {
+//    if (user) {
+//      user.email !== null ? dispatch(setUserCredentials(user.email)) : '';
 //     dispatch(navigate(screens.MAIN));
 //   } else {
-//     dispatch(navigate(screens.LANDING));
-//   }
-// });
+//     dispatch(navigate(screens.SIGN_IN));
+//    }
+//  });
 
 
 const emptyState = {
     //pantalla inicial
   screen: screens.LANDING,
+  user: {}
 };
 
 export let appState = Storage.get<AppState>({

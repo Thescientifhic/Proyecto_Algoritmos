@@ -14,23 +14,33 @@
         padding: 2%;
         height: 40px;
     }
-    
+
     form {
         background-color: #111418;
         border-radius: 40px;
         width: 500px;
         height: 460px;
-    
+
     }
-    
+
+    .linkCreate {
+        padding: 8px 12px;
+        margin-top: 20px;
+        background-color: transparent;
+        border: none;
+        color: #ffffff; /* Color del texto */
+        font-size: 14px;
+        cursor: pointer;
+    }
+
     .form {
         display: flex;
         align-items: center;
         flex-direction: column;
         padding-top: 2%;
-    
+
     }
-    
+
     .go-out {
         background: none;
         border: none;
@@ -38,11 +48,11 @@
         height: 5px;
         padding-left: 70%;
     }
-    
+
     .img-out {
         width: 20px;
     }
-    
+
     h1 {
         color: white;
         font-size: 25px;
@@ -60,7 +70,7 @@
         margin: 1.5%;
         padding-left: 2%;
     }
-    
+
     .loginbtn {
         background-color: #55FF00;
         border-radius: 30px;
@@ -72,9 +82,9 @@
         font-family: 'DM Sans', sans-serif;
         font-size: larger;
         color: white;
-    
+
     }
-    
+
     a {
         color: white;
         padding-top: 4%;
@@ -162,5 +172,5 @@
         font-weight: 40;
         font-size: smaller;
     }
-    
+
 }

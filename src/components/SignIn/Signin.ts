@@ -1,11 +1,14 @@
 import { navigate } from "../../store/actions";
 import { addObserver, dispatch } from "../../store/index";
 import { screens } from "../../types/navigation";
+import Firebase from "../../utils/firebase";
 
 export enum AttributeSignIn {
     btnSignIn = "btnSignIn",
     btnAccount = "btnAccount"
 }
+
+const credentials = { email: "", password: "" };
 
 export default class SignIn extends HTMLElement {
     btnSignIn?: string;
@@ -39,6 +42,10 @@ export default class SignIn extends HTMLElement {
     connectedCallback() {
         this.render();
     }
+
+    async handleLoginButton() {
+        Firebase.loginUser(credentials);
+      }
 
     render() {
         if (this.shadowRoot) this.shadowRoot.innerHTML = '';
@@ -82,27 +89,37 @@ export default class SignIn extends HTMLElement {
         const emailInput = this.ownerDocument.createElement("input");
         emailInput.setAttribute("type", "email");
         emailInput.setAttribute("placeholder", "E-mail");
+        emailInput.addEventListener(
+            "change",
+            (e: any) => (credentials.email = e.target.value)
+          );
         emailInput.classList.add('inpuut');
 
         // Campo de contraseña
         const passwordInput = this.ownerDocument.createElement("input");
         passwordInput.setAttribute("type", "password");
         passwordInput.setAttribute("placeholder", "Password");
+        passwordInput.addEventListener(
+            "change",
+            (e: any) => (credentials.password = e.target.value)
+          );
         passwordInput.classList.add('inpuut');
 
         // link sign up
-        const linkCreate = this.ownerDocument.createElement("a");
+        const linkCreate = this.ownerDocument.createElement("button");
         linkCreate.innerText = "Don´t have an account? Create"
+        linkCreate.classList.add('linkCreate');
+        linkCreate.addEventListener("click", () => {
+            console.log("click Login")
+            dispatch(navigate(screens.SING_UP))
+        })
 
 
         // Botón de inicio de sesión
         const loginButton = this.ownerDocument.createElement("button");
         loginButton.classList.add('loginbtn');
         loginButton.innerText = "Log In";
-        loginButton.addEventListener("click", () => {
-            console.log("click Login")
-            dispatch(navigate(screens.MAIN))
-        })
+        loginButton.addEventListener("click", this.handleLoginButton);
 
         // Agregar elementos al formulario
         loginForm.appendChild(goOut);

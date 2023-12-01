@@ -100,8 +100,9 @@ export default class LogIn extends HTMLElement {
           );
         passwordInput.classList.add('inpuut');
 
-        const linkCreate = this.ownerDocument.createElement("a");
+        const linkCreate = this.ownerDocument.createElement("button");
         linkCreate.innerText = "Don´t have an account? Create"
+
         // Botón de recordar
         // const rememberCheckbox = this.ownerDocument.createElement("input");
         // rememberCheckbox.setAttribute("type", "checkbox");
