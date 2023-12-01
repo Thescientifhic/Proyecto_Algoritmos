@@ -40,7 +40,7 @@ class AppContainer extends HTMLElement {
 
                 case screens.MESSAGE:
                     this.shadowRoot.innerHTML = '';
-                    const message = this.ownerDocument.createElement("app-message")
+                    const message = this.ownerDocument.createElement("message-container")
                     this.shadowRoot?.appendChild(message)
                 break;
 
@@ -71,7 +71,7 @@ class AppContainer extends HTMLElement {
 
                 case screens.LOG_IN:
                     this.shadowRoot.innerHTML = ``
-                    const logins = this.ownerDocument.createElement("app-login");
+                    const logins = this.ownerDocument.createElement("login-container");
                     this.shadowRoot.appendChild(logins);
                 break;
 

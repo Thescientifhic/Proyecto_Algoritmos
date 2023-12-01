@@ -10,10 +10,6 @@ export enum AttributeUpload {
 
 }
 
-const formPost  = {
-    img: "",
-}
-
 export default class Upload extends HTMLElement{
      img?: string;
     btn?: string;
@@ -48,13 +44,7 @@ export default class Upload extends HTMLElement{
         this.render();
     }
 
-    changeUrl(e: any){
-        formPost.img = e.target.value;
-    }
 
-    submitForm(){
-        firebase.addPost(formPost);
-    }
 
     render(){
         if(this.shadowRoot)
@@ -78,7 +68,7 @@ export default class Upload extends HTMLElement{
         goOut.addEventListener("click", () => {
             console.log("click main")
             dispatch(navigate(screens.MAIN))
-        })
+        });
 
         const h1_Element = this.ownerDocument.createElement('h1');
         h1_Element.innerText = "Upload a new post to your feed";
@@ -101,9 +91,11 @@ export default class Upload extends HTMLElement{
 
         // Link imagen
         const img_link = this.ownerDocument.createElement("input");
-        img_link.setAttribute("type", "text");
-        img_link.setAttribute("placeholder", "Url image");
-        img_link.addEventListener("change", this.changeUrl);
+        img_link.type = "file"
+        img_link.addEventListener("change", () => {
+            const file = img_link.files?.[0];
+            if(file) firebase.uploadFile(file);
+        })
         img_link.classList.add('inpuut');
         loginForm.appendChild(img_link);
 
@@ -111,10 +103,14 @@ export default class Upload extends HTMLElement{
         //boton seleccionar imagen
         const upload_button = this.ownerDocument.createElement('button');
         upload_button.innerText = `upload your picture`;
-        upload_button.addEventListener("click", this.submitForm);
+        upload_button.addEventListener("click", () => {
+            console.log("click main")
+            dispatch(navigate(screens.MAIN))
+        })
         upload_button.classList.add('green-button');
         section.appendChild(upload_button);
         this.shadowRoot?.appendChild(section);
+
     }
 }
 

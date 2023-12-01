@@ -23,17 +23,13 @@ export class EditProfile extends HTMLElement {
            const sectionContainer = this.ownerDocument.createElement("section");
            this.shadowRoot.appendChild(sectionContainer);
 
-           const inputsG = this.ownerDocument.createElement("div");
-           inputsG.setAttribute("class", "inputsG");
-           sectionContainer.appendChild(inputsG);
-
            const inputs1 = this.ownerDocument.createElement("div");
            inputs1.setAttribute("class", "name");
-           inputsG.appendChild(inputs1);
+           sectionContainer.appendChild(inputs1);
 
            const divgeneral = this.ownerDocument.createElement("div");
            divgeneral.setAttribute("class", "general");
-           inputsG.appendChild(divgeneral);
+           sectionContainer.appendChild(divgeneral);
 
            const divother = this.ownerDocument.createElement("div");
            divother.setAttribute("class", "text");

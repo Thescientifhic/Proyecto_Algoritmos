@@ -1,25 +1,56 @@
-.upload-image{
-    height: 250px;
-    width: 250px;
-    margin: 0.5%;
-    min-width: 200px;
-    min-height: 200px;
-
+@media (min-width: 801px) {
+    .upload-image{
+        height: 25%;
+        width: 25%;
+        margin: 0.2%;
+        min-width: 200px;
+        min-height: 200px;
+    
+    }
+    
+    .containerAll{
+        right: 0;
+        position: absolute;
+    }
+    
+    .my-profile{
+        position: relative;
+    }
+    
+    .container2{
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        margin-left: 20%;
+    }
+    
 }
 
-.containerAll{
-    right: 0;
-    position: absolute;
-    top: 20px;
-    padding-right: 400px;
-}
-
-.container2{
-padding-top: 50px;
-width: 789px;
-
-}
-
-.my-profile{
-    position: relative;
+@media (max-width: 800px) {
+    .upload-image{
+        height: 20%;
+        width: 25%;
+        margin: 0.5%;
+        min-width: 100px;
+        min-height: 100px;
+    }
+    
+    .containerAll{
+        right: 0;
+        position: absolute;
+        margin-top: -750px;
+    }
+    
+    .my-profile{
+        position: relative;
+    }
+    
+    .container2{
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        margin-left: 15%;
+        
+    }
+    
 }

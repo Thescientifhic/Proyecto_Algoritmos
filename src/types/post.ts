@@ -3,4 +3,5 @@ export interface DataPost {
     img: string;
     img2: string;
     deleted: boolean;
+    id: string
 }

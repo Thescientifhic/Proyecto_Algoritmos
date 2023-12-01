@@ -106,8 +106,13 @@ export default class SignUp extends HTMLElement {
             dispatch(navigate(screens.EDIT_PROFILE))
         })
 
-        const linkCreate = this.ownerDocument.createElement("a");
+        const linkCreate = this.ownerDocument.createElement("button");
         linkCreate.innerText = "Already have an account? Sign in"
+        linkCreate.classList.add('linkCreate');
+        linkCreate.addEventListener("click", () => {
+            console.log("click Login")
+            dispatch(navigate(screens.SIGN_IN))
+        })
 
         // Agregar elementos al formulario
         loginForm.appendChild(goOut);

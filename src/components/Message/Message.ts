@@ -44,7 +44,7 @@ export default class Message extends HTMLElement {
 
             const link = this.ownerDocument.createElement("link")
             link.setAttribute("rel", "stylesheet")
-            //link.setAttribute("href", "/src/components/Message/Message.css")
+            link.setAttribute("href", "/src/components/Message/Message.css")
             this.shadowRoot.appendChild(link);
 
             const sectionContainer = this.ownerDocument.createElement("section")
