@@ -14,7 +14,7 @@ import { DataProfile } from "../types/profile";
 import { DataImgProfile } from "../types/profileImg";
 import { DataMsg } from "../types/message";
 import { doc, updateDoc } from "firebase/firestore";
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, setPersistence, browserLocalPersistence} from "firebase/auth";import data from "../service/data";
+import { getAuth, createUserWithEmailAndPassword, browserSessionPersistence, signInWithEmailAndPassword, setPersistence, browserLocalPersistence, UserCredential} from "firebase/auth";import data from "../service/data";
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -32,7 +32,7 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
-const auth = getAuth(app);
+export const auth = getAuth(app);
 
 const postCollection = collection(db, "post");
 
@@ -119,15 +119,24 @@ const createUser = async (email: string,password: string, name: string) => {
   }
 }
 
-const logIn = async (email: string, password: string) => {
-  setPersistence(auth,browserLocalPersistence).then(() =>{
-    return signInWithEmailAndPassword(auth,email,password);
-  }).catch((error)=> {
+const loginUser = async ({
+  email,
+  password,
+}: {
+  email: string;
+  password: string;
+}) => {
+  setPersistence(auth, browserSessionPersistence)
+  .then(() => {
+    return signInWithEmailAndPassword(auth, email, password);
+  })
+  .catch((error) => {
+    // Handle Errors here.
     const errorCode = error.code;
     const errorMessage = error.message;
-    console.error(errorCode,errorMessage);
-  })
-}
+    console.log(errorCode, errorMessage);
+  });
+};
 
 
 export default {
@@ -136,7 +145,7 @@ export default {
   addPost,
   getDataImgProfile,
   createUser,
-  logIn,
+  loginUser,
 };
 
 //función para el botón de eliminar

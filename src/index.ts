@@ -71,7 +71,7 @@ class AppContainer extends HTMLElement {
 
                 case screens.LOG_IN:
                     this.shadowRoot.innerHTML = ``
-                    const logins = this.ownerDocument.createElement("app-login");
+                    const logins = this.ownerDocument.createElement("login-container");
                     this.shadowRoot.appendChild(logins);
                 break;
 
