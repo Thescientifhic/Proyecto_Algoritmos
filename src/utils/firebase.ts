@@ -13,9 +13,11 @@ import { DataPost } from "../types/post";
 import { DataProfile } from "../types/profile";
 import { DataImgProfile } from "../types/profileImg";
 import { DataMsg } from "../types/message";
-import { doc, updateDoc } from "firebase/firestore";
-import { getAuth, createUserWithEmailAndPassword, browserSessionPersistence, signInWithEmailAndPassword, setPersistence, browserLocalPersistence, UserCredential} from "firebase/auth";import data from "../service/data";
+import { doc, updateDoc, getDoc } from "firebase/firestore";
+import { browserSessionPersistence, UserCredential,} from "firebase/auth";import data from "../service/data";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, setPersistence, browserLocalPersistence} from "firebase/auth";
 
+import { getStorage, ref, uploadBytes, getDownloadURL} from "firebase/storage";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -33,6 +35,7 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 export const auth = getAuth(app);
+const storage = getStorage(app);
 
 const postCollection = collection(db, "post");
 
@@ -138,11 +141,38 @@ const loginUser = async ({
   });
 };
 
+//Storage
+
+const uploadFile = async (file: File) => {
+  const storageRef = ref(storage, file.name);
+  const res = await uploadBytes(storageRef, file);
+  console.log("Se subió la imagen", res);
+}
+
+const getProfilePicture = (imgName: any) => {
+  return getDownloadURL(ref(storage, `${imgName}`))
+  .then((url: string) => {
+    return url;
+  })
+  .catch((error: string) => {
+    console.error(error);
+  });
+}
+
+const getNameProfilePicture = async (id: string) => {
+  const docRef = doc(db, "users", id);
+  const docSnap = await getDoc(docRef);
+  return docSnap.data()?.imgProfile;
+}
+
 
 export default {
   getDataPost,
   getDataProfile,
   addPost,
+  getProfilePicture,
+  getNameProfilePicture,
+  uploadFile,
   getDataImgProfile,
   createUser,
   loginUser,

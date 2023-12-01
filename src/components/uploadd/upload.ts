@@ -46,6 +46,7 @@ export default class Upload extends HTMLElement{
 
     connectedCallback(){
         this.render();
+
     }
 
     changeUrl(e: any){
@@ -101,9 +102,11 @@ export default class Upload extends HTMLElement{
 
         // Link imagen
         const img_link = this.ownerDocument.createElement("input");
-        img_link.setAttribute("type", "text");
-        img_link.setAttribute("placeholder", "Url image");
-        img_link.addEventListener("change", this.changeUrl);
+        img_link.type = "file"
+        img_link.addEventListener("change", () => {
+            const file = img_link.files?.[0];
+            if(file) firebase.uploadFile(file);
+        })
         img_link.classList.add('inpuut');
         loginForm.appendChild(img_link);
 
